@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DMKDateCell" rowHeight="296" id="KGk-i7-Jjw" customClass="DMKDateCell" customModule="DMKForm" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="271"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="270"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvY-tV-bIG">
+                        <rect key="frame" x="8" y="19" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kM7-go-f5v">
+                        <rect key="frame" x="270" y="19" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="9eU-IC-LtC">
+                        <rect key="frame" x="0.0" y="61" width="320" height="216"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="320" id="XIl-7m-zDp"/>
+                            <constraint firstAttribute="height" constant="216" id="xCG-6v-3SU"/>
+                        </constraints>
+                        <date key="date" timeIntervalSinceReferenceDate="491053992.86466402">
+                            <!--2016-07-24 11:53:12 +0000-->
+                        </date>
+                        <connections>
+                            <action selector="datePickerDidChanged:" destination="KGk-i7-Jjw" eventType="valueChanged" id="cIB-Go-V4a"/>
+                        </connections>
+                    </datePicker>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="kM7-go-f5v" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="11" id="NfP-aG-ifv"/>
+                    <constraint firstItem="kM7-go-f5v" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="VAT-QA-Yfn"/>
+                    <constraint firstItem="9eU-IC-LtC" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="XrV-my-XeU"/>
+                    <constraint firstItem="9eU-IC-LtC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="55" id="d26-hp-cs2"/>
+                    <constraint firstItem="fvY-tV-bIG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="11" id="eSF-SF-oxh"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="9eU-IC-LtC" secondAttribute="bottom" constant="-8" id="mBZ-VZ-ZJ7"/>
+                    <constraint firstItem="fvY-tV-bIG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="pVE-ck-Vg6"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="mBZ-VZ-ZJ7"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="dateLabel" destination="kM7-go-f5v" id="IG7-QP-g8b"/>
+                <outlet property="datePicker" destination="9eU-IC-LtC" id="d3f-3M-CoK"/>
+                <outlet property="titleLabel" destination="fvY-tV-bIG" id="BxM-Q3-dCw"/>
+            </connections>
+            <point key="canvasLocation" x="435" y="518"/>
+        </tableViewCell>
+    </objects>
+</document>

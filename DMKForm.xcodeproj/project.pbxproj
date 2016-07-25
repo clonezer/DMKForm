@@ -8,11 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		638244241D447A27000E542A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638244231D447A27000E542A /* AppDelegate.swift */; };
-		638244261D447A27000E542A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638244251D447A27000E542A /* ViewController.swift */; };
 		638244291D447A27000E542A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 638244271D447A27000E542A /* Main.storyboard */; };
 		6382442B1D447A27000E542A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6382442A1D447A27000E542A /* Assets.xcassets */; };
 		6382442E1D447A27000E542A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6382442C1D447A27000E542A /* LaunchScreen.storyboard */; };
 		638244391D447A27000E542A /* DMKFormTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638244381D447A27000E542A /* DMKFormTests.swift */; };
+		638244441D447AB2000E542A /* DMKFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638244431D447AB2000E542A /* DMKFormViewController.swift */; };
+		638244461D4480B1000E542A /* DMKFormCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638244451D4480B1000E542A /* DMKFormCell.swift */; };
+		638244491D448666000E542A /* DMKNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638244471D448666000E542A /* DMKNameCell.swift */; };
+		6382444A1D448666000E542A /* DMKNameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638244481D448666000E542A /* DMKNameCell.xib */; };
+		6395ACE91D44D6BC00F83D3F /* DMKTextfieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6395ACE71D44D6BC00F83D3F /* DMKTextfieldCell.swift */; };
+		6395ACEA1D44D6BC00F83D3F /* DMKTextfieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6395ACE81D44D6BC00F83D3F /* DMKTextfieldCell.xib */; };
+		6395ACEC1D44E0CC00F83D3F /* TestFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6395ACEB1D44E0CC00F83D3F /* TestFormViewController.swift */; };
+		6395ACEF1D44E39000F83D3F /* DMKDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6395ACED1D44E39000F83D3F /* DMKDateCell.swift */; };
+		6395ACF01D44E39000F83D3F /* DMKDateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6395ACEE1D44E39000F83D3F /* DMKDateCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +36,6 @@
 /* Begin PBXFileReference section */
 		638244201D447A27000E542A /* DMKForm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DMKForm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		638244231D447A27000E542A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		638244251D447A27000E542A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		638244281D447A27000E542A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6382442A1D447A27000E542A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6382442D1D447A27000E542A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +43,15 @@
 		638244341D447A27000E542A /* DMKFormTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DMKFormTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		638244381D447A27000E542A /* DMKFormTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMKFormTests.swift; sourceTree = "<group>"; };
 		6382443A1D447A27000E542A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		638244431D447AB2000E542A /* DMKFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMKFormViewController.swift; sourceTree = "<group>"; };
+		638244451D4480B1000E542A /* DMKFormCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMKFormCell.swift; sourceTree = "<group>"; };
+		638244471D448666000E542A /* DMKNameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMKNameCell.swift; sourceTree = "<group>"; };
+		638244481D448666000E542A /* DMKNameCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMKNameCell.xib; sourceTree = "<group>"; };
+		6395ACE71D44D6BC00F83D3F /* DMKTextfieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMKTextfieldCell.swift; sourceTree = "<group>"; };
+		6395ACE81D44D6BC00F83D3F /* DMKTextfieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMKTextfieldCell.xib; sourceTree = "<group>"; };
+		6395ACEB1D44E0CC00F83D3F /* TestFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestFormViewController.swift; sourceTree = "<group>"; };
+		6395ACED1D44E39000F83D3F /* DMKDateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMKDateCell.swift; sourceTree = "<group>"; };
+		6395ACEE1D44E39000F83D3F /* DMKDateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMKDateCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +94,8 @@
 			isa = PBXGroup;
 			children = (
 				638244231D447A27000E542A /* AppDelegate.swift */,
-				638244251D447A27000E542A /* ViewController.swift */,
+				6395ACEB1D44E0CC00F83D3F /* TestFormViewController.swift */,
+				6395ACF11D44EC4D00F83D3F /* DMKForm */,
 				638244271D447A27000E542A /* Main.storyboard */,
 				6382442A1D447A27000E542A /* Assets.xcassets */,
 				6382442C1D447A27000E542A /* LaunchScreen.storyboard */,
@@ -94,6 +111,21 @@
 				6382443A1D447A27000E542A /* Info.plist */,
 			);
 			path = DMKFormTests;
+			sourceTree = "<group>";
+		};
+		6395ACF11D44EC4D00F83D3F /* DMKForm */ = {
+			isa = PBXGroup;
+			children = (
+				638244431D447AB2000E542A /* DMKFormViewController.swift */,
+				638244451D4480B1000E542A /* DMKFormCell.swift */,
+				6395ACED1D44E39000F83D3F /* DMKDateCell.swift */,
+				6395ACEE1D44E39000F83D3F /* DMKDateCell.xib */,
+				6395ACE71D44D6BC00F83D3F /* DMKTextfieldCell.swift */,
+				6395ACE81D44D6BC00F83D3F /* DMKTextfieldCell.xib */,
+				638244471D448666000E542A /* DMKNameCell.swift */,
+				638244481D448666000E542A /* DMKNameCell.xib */,
+			);
+			name = DMKForm;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,6 +178,7 @@
 				TargetAttributes = {
 					6382441F1D447A27000E542A = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = JL47A9ESW6;
 					};
 					638244331D447A27000E542A = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -178,6 +211,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6382442E1D447A27000E542A /* LaunchScreen.storyboard in Resources */,
+				6382444A1D448666000E542A /* DMKNameCell.xib in Resources */,
+				6395ACF01D44E39000F83D3F /* DMKDateCell.xib in Resources */,
+				6395ACEA1D44D6BC00F83D3F /* DMKTextfieldCell.xib in Resources */,
 				6382442B1D447A27000E542A /* Assets.xcassets in Resources */,
 				638244291D447A27000E542A /* Main.storyboard in Resources */,
 			);
@@ -197,8 +233,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				638244261D447A27000E542A /* ViewController.swift in Sources */,
+				6395ACE91D44D6BC00F83D3F /* DMKTextfieldCell.swift in Sources */,
+				638244461D4480B1000E542A /* DMKFormCell.swift in Sources */,
+				638244441D447AB2000E542A /* DMKFormViewController.swift in Sources */,
+				6395ACEC1D44E0CC00F83D3F /* TestFormViewController.swift in Sources */,
 				638244241D447A27000E542A /* AppDelegate.swift in Sources */,
+				6395ACEF1D44E39000F83D3F /* DMKDateCell.swift in Sources */,
+				638244491D448666000E542A /* DMKNameCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +370,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = DMKForm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.peerasak.DMKForm;
@@ -340,6 +382,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = DMKForm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.peerasak.DMKForm;
@@ -390,6 +433,7 @@
 				6382443F1D447A27000E542A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		638244401D447A27000E542A /* Build configuration list for PBXNativeTarget "DMKFormTests" */ = {
 			isa = XCConfigurationList;
@@ -398,6 +442,7 @@
 				638244421D447A27000E542A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

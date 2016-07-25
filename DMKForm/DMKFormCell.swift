@@ -17,7 +17,6 @@ class DMKFormCell: UITableViewCell {
             self.update()
         }
     }
-    
     var title: String? {
         didSet {
             self.update()
@@ -28,7 +27,7 @@ class DMKFormCell: UITableViewCell {
             self.update()
         }
     }
-    
+    var options: [AnyObject] = []
     var height: CGFloat = 55
     var cellDisable: Bool = false
     var cellHidden: Bool = false {
@@ -59,18 +58,25 @@ class DMKFormCell: UITableViewCell {
 
     }
     
-    static func cellWithForm(formVC: DMKFormViewController, type: String) -> AnyObject {
-        let cell = formVC.tableView.dequeueReusableCellWithIdentifier(type) as! DMKFormCell
-        cell.form = formVC
-        return cell
-    }
-    
     static func cellWithForm(formVC: DMKFormViewController, tagName: String, type: String, title: String?, value: AnyObject?) -> AnyObject {
         let cell = formVC.tableView.dequeueReusableCellWithIdentifier(type) as! DMKFormCell
         cell.form = formVC
         cell.tagName = tagName
         cell.value = value
         cell.title = title
+        return cell
+    }
+    
+    static func cellWithForm(formVC: DMKFormViewController, tagName: String, type: String, title: String?, value: AnyObject?, options: [AnyObject]) -> AnyObject {
+        let cell = formVC.tableView.dequeueReusableCellWithIdentifier(type) as! DMKFormCell
+        cell.form = formVC
+        cell.options = options
+        cell.configCell()
+        
+        cell.tagName = tagName
+        cell.value = value
+        cell.title = title
+        
         return cell
     }
 

@@ -15,48 +15,28 @@ class TestFormViewController: DMKFormViewController {
 
         let form = DMKForm()
         
-        let nameCell = DMKFormCell.cellWithForm(self, tagName: "Name", type: "DMKNameCell", title: "First Name", value: "Peerasak") as! DMKNameCell
+        let unitKindCell = DMKFormCell.cellWithForm(self, tagName: "UnitKind", type: "DMKSegmentedCell", title: "Unit Kind", value: "Room", options: ["Room", "Bed"]) as! DMKSegmentedCell
         
-        let textFieldCell = DMKFormCell.cellWithForm(self, tagName: "EmailInput", type: "DMKTextfieldCell", title: "Input Email", value: "clonezer@gmail.com") as! DMKTextfieldCell
+        let unitTypeNameCell = DMKFormCell.cellWithForm(self, tagName: "UnitTypeName", type: "DMKTextfieldCell", title: "Unit Type Name", value: "") as! DMKTextfieldCell
         
+        let unitDetailCell = DMKFormCell.cellWithForm(self, tagName: "UnitDetail", type: "DMKTextViewCell", title: "Unit Type Detail", value: "") as! DMKTextViewCell
+
         let dateCell = DMKFormCell.cellWithForm(self, tagName: "Date", type: "DMKDateCell", title: "Date", value: NSDate()) as! DMKDateCell
-        
-        let mailCell = DMKFormCell.cellWithForm(self, tagName: "EmailInfo", type: "DMKNameCell", title: "Email Info", value: textFieldCell.value) as! DMKNameCell
-        
-        let checkInDate = DMKFormCell.cellWithForm(self, tagName: "CheckInDate", type: "DMKDateCell", title: "Check In Date", value: NSDate()) as! DMKDateCell
-        
-        let infoCell = DMKFormCell.cellWithForm(self, tagName: "InfoCell", type: "DMKNameCell", title: "Info", value: "Hello World!") as! DMKNameCell
         
         let fullNameCell = DMKFormCell.cellWithForm(self, tagName: "FullName", type: "DMKTextfieldCell", title: "Full Name", value: "Peerasak Unsakon") as! DMKTextfieldCell
         
-        let textViewCell = DMKFormCell.cellWithForm(self, tagName: "TextView", type: "DMKTextViewCell", title: "Detail", value: "The quick brown fox jumps over the lazy dog") as! DMKTextViewCell
-        
 
-        textFieldCell.onChangBlock = { (oldValue, newValue, cell) in
-            let mail = newValue as! String
-            mailCell.value = mail
-            textViewCell.cellHidden = (mail == "dadada")
+        unitKindCell.onChangBlock = { (oldValue, newValue, cell) in
+            fullNameCell.cellHidden = (unitKindCell.value as! String == "Bed")
         }
-        
-        dateCell.onChangBlock = { (oldValue, newValue, cell) in
-            let date = newValue as! NSDate
-            checkInDate.value = date
-        }
-        
+
         let section1 = DMKFormSection()
-        section1.addCell(nameCell)
-        section1.addCell(textFieldCell)
+        section1.addCell(unitKindCell)
+        section1.addCell(unitTypeNameCell)
+        section1.addCell(unitDetailCell)
         section1.addCell(dateCell)
+        section1.addCell(fullNameCell)
         form.addSection(section1)
-        let section2 = DMKFormSection()
-        section2.addCell(mailCell)
-        section2.addCell(checkInDate)
-        form.addSection(section2)
-        let section3 = DMKFormSection()
-        section3.addCell(infoCell)
-        section3.addCell(fullNameCell)
-        section3.addCell(textViewCell)
-        form.addSection(section3)
         
         self.form = form
     }

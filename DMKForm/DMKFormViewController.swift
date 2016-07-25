@@ -64,7 +64,7 @@ class DMKFormViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.registerNibName(["DMKNameCell", "DMKTextfieldCell", "DMKDateCell"])
+        self.registerNibName(["DMKNameCell", "DMKTextfieldCell", "DMKDateCell", "DMKTextViewCell"])
     }
     
     func registerNibName(nibNames: [String]) {
@@ -94,6 +94,8 @@ class DMKFormViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.hideKeyboard()
+        
         let cell = self.form.getSection(indexPath.section).getCell(indexPath) 
         if let block = cell.actionBlock {
             block(cell: cell)
@@ -103,4 +105,9 @@ class DMKFormViewController: UITableViewController {
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return self.form.getSection(indexPath.section).getCell(indexPath).height
     }
+    
+    func hideKeyboard() {
+        view.endEditing(true)
+    }
+    
 }

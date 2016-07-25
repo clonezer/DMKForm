@@ -25,6 +25,11 @@ class TestFormViewController: DMKFormViewController {
         
         let checkInDate = DMKFormCell.cellWithForm(self, tagName: "CheckInDate", type: "DMKDateCell", title: "Check In Date", value: NSDate()) as! DMKDateCell
         
+        let infoCell = DMKFormCell.cellWithForm(self, tagName: "InfoCell", type: "DMKNameCell", title: "Info", value: "Hello World!") as! DMKNameCell
+        
+        let fullNameCell = DMKFormCell.cellWithForm(self, tagName: "FullName", type: "DMKTextfieldCell", title: "Full Name", value: "Peerasak Unsakon") as! DMKTextfieldCell
+        
+        let textViewCell = DMKFormCell.cellWithForm(self, tagName: "TextView", type: "DMKTextViewCell", title: "Detail", value: "The quick brown fox jumps over the lazy dog") as! DMKTextViewCell
         
         textFieldCell.onChangBlock = { (oldValue, newValue, cell) in
             let mail = newValue as! String
@@ -45,6 +50,11 @@ class TestFormViewController: DMKFormViewController {
         section2.addCell(mailCell)
         section2.addCell(checkInDate)
         form.addSection(section2)
+        let section3 = DMKFormSection()
+        section3.addCell(infoCell)
+        section3.addCell(fullNameCell)
+        section3.addCell(textViewCell)
+        form.addSection(section3)
         
         self.form = form
     }

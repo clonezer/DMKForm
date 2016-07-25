@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Test Form View Controller-->
+        <!--DMKFormViewController-->
         <scene sceneID="JRY-7g-UtM">
             <objects>
                 <tableViewController id="bY8-dK-ezy" customClass="TestFormViewController" customModule="DMKForm" customModuleProvider="target" sceneMemberID="viewController">
@@ -28,7 +28,7 @@
                             <outlet property="delegate" destination="bY8-dK-ezy" id="h9g-hQ-jEv"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Rda-Ze-X8Z"/>
+                    <navigationItem key="navigationItem" title="DMKFormViewController" id="Rda-Ze-X8Z"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zo9-YS-2LS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

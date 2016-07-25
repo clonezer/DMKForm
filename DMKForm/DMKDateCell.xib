@@ -27,8 +27,8 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="9eU-IC-LtC">
-                        <rect key="frame" x="0.0" y="61" width="320" height="216"/>
+                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="9eU-IC-LtC">
+                        <rect key="frame" x="0.0" y="63" width="320" height="216"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="320" id="XIl-7m-zDp"/>
                             <constraint firstAttribute="height" constant="216" id="xCG-6v-3SU"/>
@@ -47,14 +47,8 @@
                     <constraint firstItem="9eU-IC-LtC" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="XrV-my-XeU"/>
                     <constraint firstItem="9eU-IC-LtC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="55" id="d26-hp-cs2"/>
                     <constraint firstItem="fvY-tV-bIG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="11" id="eSF-SF-oxh"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="9eU-IC-LtC" secondAttribute="bottom" constant="-8" id="mBZ-VZ-ZJ7"/>
                     <constraint firstItem="fvY-tV-bIG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="pVE-ck-Vg6"/>
                 </constraints>
-                <variation key="default">
-                    <mask key="constraints">
-                        <exclude reference="mBZ-VZ-ZJ7"/>
-                    </mask>
-                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="dateLabel" destination="kM7-go-f5v" id="IG7-QP-g8b"/>

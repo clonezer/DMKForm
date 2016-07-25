@@ -31,7 +31,11 @@ class DMKFormCell: UITableViewCell {
     
     var height: CGFloat = 55
     var cellDisable: Bool = false
-    var cellHidden: Bool = false
+    var cellHidden: Bool = false {
+        didSet {
+            self.form!.reloadForm()
+        }
+    }
     var actionBlock: DMKActionBlock?
     var onChangBlock: DMKOnChangeBlock?
     var form: DMKFormViewController?

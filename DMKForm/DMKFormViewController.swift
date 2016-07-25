@@ -21,18 +21,29 @@ class DMKForm {
     var title: String?
     var numberOfSections: Int = 0
     
-    private var sections: [DMKFormSection] = [] {
+    private var realSections: [DMKFormSection] = [] {
         didSet {
-            numberOfSections = sections.count
+            numberOfSections = realSections.count
         }
     }
     
+    private var sections: [DMKFormSection] = []
+    
     func addSection(section: DMKFormSection) {
         sections.append(section)
+        realSections.append(section)
     }
     
     func getSection(section: Int) -> DMKFormSection {
-        return sections[section]
+        return realSections[section]
+    }
+    
+    func reloadData() {
+        realSections.removeAll()
+        for section in sections {
+            section.reloadData()
+            realSections.append(section)
+        }
     }
 }
 
@@ -43,18 +54,31 @@ class DMKFormSection {
     
     var numberOfRows: Int = 0
     
-    private var cells: [DMKFormCell] = [] {
+    private var realCells: [DMKFormCell] = [] {
         didSet {
-            self.numberOfRows = cells.count
+            self.numberOfRows = realCells.count
         }
     }
+    private var cells: [DMKFormCell] = []
     
     func addCell(cell: DMKFormCell) {
         cells.append(cell)
+        if cell.cellHidden == false {
+            realCells.append(cell)
+        }
     }
     
     func getCell(indexPath: NSIndexPath) -> DMKFormCell {
-        return cells[indexPath.row]
+        return realCells[indexPath.row]
+    }
+    
+    func reloadData() {
+        realCells.removeAll()
+        for cell in cells {
+            if cell.cellHidden == false {
+                realCells.append(cell)
+            }
+        }
     }
 }
 
@@ -104,6 +128,11 @@ class DMKFormViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return self.form.getSection(indexPath.section).getCell(indexPath).height
+    }
+    
+    func reloadForm() {
+        self.form.reloadData()
+        self.tableView.reloadData()
     }
     
     func hideKeyboard() {

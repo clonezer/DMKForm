@@ -31,9 +31,11 @@ class TestFormViewController: DMKFormViewController {
         
         let textViewCell = DMKFormCell.cellWithForm(self, tagName: "TextView", type: "DMKTextViewCell", title: "Detail", value: "The quick brown fox jumps over the lazy dog") as! DMKTextViewCell
         
+
         textFieldCell.onChangBlock = { (oldValue, newValue, cell) in
             let mail = newValue as! String
             mailCell.value = mail
+            textViewCell.cellHidden = (mail == "dadada")
         }
         
         dateCell.onChangBlock = { (oldValue, newValue, cell) in

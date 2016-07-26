@@ -108,6 +108,13 @@ class DMKFormViewController: UITableViewController {
 
     var form: DMKForm!
     
+    var titleFont: UIFont = UIFont.boldSystemFontOfSize(15)
+    var detailFont: UIFont = UIFont.systemFontOfSize(15)
+    var tintColor: UIColor = UIColor(red: 215/255, green: 35/255, blue: 35/255, alpha: 1.0)
+    var titleColor: UIColor = UIColor(red: 48/255, green: 56/255, blue: 65/255, alpha: 1.0)
+    var detailColor: UIColor = UIColor(red: 58/255, green: 71/255, blue: 80/255, alpha: 1.0)
+    var cellColor: UIColor = UIColor.whiteColor()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.registerNibName(["DMKNameCell", "DMKTextfieldCell", "DMKDateCell", "DMKTextViewCell", "DMKSegmentedCell"])
@@ -152,12 +159,20 @@ class DMKFormViewController: UITableViewController {
         return self.form.getSection(indexPath.section).getCell(indexPath).height
     }
     
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return self.form.getSection(section).headerText
+    }
+    
+    override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        return self.form.getSection(section).footerText
+    }
+    
     func reloadForm() {
         self.form.reloadData()
         self.tableView.reloadData()
     }
     
-    func hideKeyboard() {
+    private func hideKeyboard() {
         view.endEditing(true)
     }
     

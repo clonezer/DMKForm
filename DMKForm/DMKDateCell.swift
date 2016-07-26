@@ -28,7 +28,12 @@ class DMKDateCell: DMKFormCell {
     }
     
     override func update() {
-        super.update()
+        self.titleLabel.font = self.form?.titleFont
+        self.titleLabel.textColor = self.form?.titleColor
+        self.dateLabel.font = self.form?.detailFont
+        self.dateLabel.textColor = self.form?.detailColor
+        self.contentView.backgroundColor = self.form?.cellColor
+        
         self.titleLabel.text = self.title
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "dd MMM yyyy"

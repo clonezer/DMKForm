@@ -15,11 +15,14 @@ class DMKSegmentedCell: DMKFormCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     override func update() {
-        super.update()
+        self.titleLabel.font = self.form?.titleFont
+        self.titleLabel.textColor = self.form?.titleColor
+        self.segmentedControl.tintColor = self.form?.tintColor
+        self.contentView.backgroundColor = self.form?.cellColor
+        
         self.titleLabel.text = self.title
         self.segmentedControl.selectedSegmentIndex = options.indexOf({$0 as! String == self.value as! String})!
     }

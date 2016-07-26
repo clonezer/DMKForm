@@ -18,7 +18,11 @@ class DMKNameCell: DMKFormCell {
     }
     
     override func update() {
-        super.update()
+        self.titleLabel.font = self.form?.titleFont
+        self.titleLabel.textColor = self.form?.titleColor
+        self.detailLabel.font = self.form?.detailFont
+        self.detailLabel.textColor = self.form?.detailColor
+        self.contentView.backgroundColor = self.form?.cellColor
         
         self.titleLabel.text = self.title
         self.detailLabel.text = self.value as? String

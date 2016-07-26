@@ -23,7 +23,13 @@ class DMKTextViewCell: DMKFormCell, UITextViewDelegate {
     }
     
     override func update() {
-        super.update()
+        self.titleLabel.font = self.form?.titleFont
+        self.titleLabel.textColor = self.form?.titleColor
+        self.textView.font = self.form?.detailFont
+        self.textView.textColor = self.form?.detailColor
+        self.contentView.backgroundColor = self.form?.cellColor
+        
+        
         self.titleLabel.text = self.title
         self.textView.text = self.value as? String
     }

@@ -13,21 +13,13 @@ class TestFormViewController: DMKFormViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         let form = DMKForm()
         
         let unitKindCell = DMKFormCell.cellWithForm(self, tagName: "UnitKind", type: "DMKSegmentedCell", title: "Unit Kind", value: "Room", options: ["Room", "Bed"]) as! DMKSegmentedCell
         
         let unitTypeNameCell = DMKFormCell.cellWithForm(self, tagName: "UnitTypeName", type: "DMKTextfieldCell", title: "Unit Type Name", value: "") as! DMKTextfieldCell
-        
-        unitTypeNameCell.actionBlock = { cell in
-            if unitTypeNameCell.cellDisable == true {
-                //showPopup
-            }else {
-               unitTypeNameCell.textField.becomeFirstResponder()
-            }
-        }
-        
+            
         let unitDetailCell = DMKFormCell.cellWithForm(self, tagName: "UnitDetail", type: "DMKTextViewCell", title: "Unit Type Detail", value: "") as! DMKTextViewCell
 
         let dateCell = DMKFormCell.cellWithForm(self, tagName: "Date", type: "DMKDateCell", title: "Date", value: NSDate()) as! DMKDateCell
@@ -39,6 +31,7 @@ class TestFormViewController: DMKFormViewController {
         }
 
         let section1 = DMKFormSection()
+        section1.headerText = "general"
         section1.addCell(unitKindCell)
         section1.addCell(unitTypeNameCell)
         section1.addCell(unitDetailCell)

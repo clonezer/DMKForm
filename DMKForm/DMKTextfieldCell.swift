@@ -22,6 +22,12 @@ class DMKTextfieldCell: DMKFormCell {
     }
     
     override func update() {
+        self.titleLabel.font = self.form?.titleFont
+        self.titleLabel.textColor = self.form?.titleColor
+        self.textField.font = self.form?.detailFont
+        self.textField.textColor = self.form?.detailColor
+        self.contentView.backgroundColor = self.form?.cellColor
+        
         self.titleLabel.text = self.title
         self.textField.text = self.value as? String
     }

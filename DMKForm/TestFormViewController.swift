@@ -31,8 +31,8 @@ class TestFormViewController: DMKFormViewController {
         extraNumberCell.maximumValue = 5
         extraNumberCell.minimumValue = 0
         
-        let basePriceCell = DMKFormCell.cellWithForm(self, tagName: "BasePrice", type: "DMKTextfieldCell", title: "Base Price", value: "0") as! DMKTextfieldCell
-        let extraPriceCell = DMKFormCell.cellWithForm(self, tagName: "ExtraPrice", type: "DMKTextfieldCell", title: "Extra Price", value: "0") as! DMKTextfieldCell
+        let basePriceCell = DMKFormCell.cellWithForm(self, tagName: "BasePrice", type: "DMKNumberFieldCell", title: "Base Price", value: 0) as! DMKNumberFieldCell
+        let extraPriceCell = DMKFormCell.cellWithForm(self, tagName: "ExtraPrice", type: "DMKNumberFieldCell", title: "Extra Price", value: 0) as! DMKNumberFieldCell
         
         extraNumberCell.cellHidden = (unitKindCell.value as! String == "Per Bed")
         extraPriceCell.cellHidden = (extraNumberCell.value as! Int) <= 0

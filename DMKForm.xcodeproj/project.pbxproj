@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		635910FD1D473F980071D59A /* DMKStepperCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635910FB1D473F980071D59A /* DMKStepperCell.swift */; };
 		635910FE1D473F980071D59A /* DMKStepperCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 635910FC1D473F980071D59A /* DMKStepperCell.xib */; };
+		635911031D47559F0071D59A /* DMKNumberFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635911011D47559F0071D59A /* DMKNumberFieldCell.swift */; };
+		635911041D47559F0071D59A /* DMKNumberFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 635911021D47559F0071D59A /* DMKNumberFieldCell.xib */; };
 		638244241D447A27000E542A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638244231D447A27000E542A /* AppDelegate.swift */; };
 		638244291D447A27000E542A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 638244271D447A27000E542A /* Main.storyboard */; };
 		6382442B1D447A27000E542A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6382442A1D447A27000E542A /* Assets.xcassets */; };
@@ -42,6 +44,8 @@
 /* Begin PBXFileReference section */
 		635910FB1D473F980071D59A /* DMKStepperCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMKStepperCell.swift; sourceTree = "<group>"; };
 		635910FC1D473F980071D59A /* DMKStepperCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMKStepperCell.xib; sourceTree = "<group>"; };
+		635911011D47559F0071D59A /* DMKNumberFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMKNumberFieldCell.swift; sourceTree = "<group>"; };
+		635911021D47559F0071D59A /* DMKNumberFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMKNumberFieldCell.xib; sourceTree = "<group>"; };
 		638244201D447A27000E542A /* DMKForm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DMKForm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		638244231D447A27000E542A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		638244281D447A27000E542A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -146,6 +150,8 @@
 				6395AD1F1D46363D00F83D3F /* DMKTextViewCell.xib */,
 				6395ACED1D44E39000F83D3F /* DMKDateCell.swift */,
 				6395ACEE1D44E39000F83D3F /* DMKDateCell.xib */,
+				635911011D47559F0071D59A /* DMKNumberFieldCell.swift */,
+				635911021D47559F0071D59A /* DMKNumberFieldCell.xib */,
 				6395ACE71D44D6BC00F83D3F /* DMKTextfieldCell.swift */,
 				6395ACE81D44D6BC00F83D3F /* DMKTextfieldCell.xib */,
 				638244471D448666000E542A /* DMKNameCell.swift */,
@@ -236,6 +242,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				635911041D47559F0071D59A /* DMKNumberFieldCell.xib in Resources */,
 				6382442E1D447A27000E542A /* LaunchScreen.storyboard in Resources */,
 				6382444A1D448666000E542A /* DMKNameCell.xib in Resources */,
 				6395ACF01D44E39000F83D3F /* DMKDateCell.xib in Resources */,
@@ -271,6 +278,7 @@
 				6395AD251D4683E900F83D3F /* DMKSegmentedCell.swift in Sources */,
 				638244241D447A27000E542A /* AppDelegate.swift in Sources */,
 				6395ACEF1D44E39000F83D3F /* DMKDateCell.swift in Sources */,
+				635911031D47559F0071D59A /* DMKNumberFieldCell.swift in Sources */,
 				638244491D448666000E542A /* DMKNameCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -19,12 +19,19 @@ class TestFormViewController: DMKFormViewController {
         
         let unitTypeNameCell = DMKFormCell.cellWithForm(self, tagName: "UnitTypeName", type: "DMKTextfieldCell", title: "Unit Type Name", value: "") as! DMKTextfieldCell
         
+        unitTypeNameCell.actionBlock = { cell in
+            if unitTypeNameCell.cellDisable == true {
+                //showPopup
+            }else {
+               unitTypeNameCell.textField.becomeFirstResponder()
+            }
+        }
+        
         let unitDetailCell = DMKFormCell.cellWithForm(self, tagName: "UnitDetail", type: "DMKTextViewCell", title: "Unit Type Detail", value: "") as! DMKTextViewCell
 
         let dateCell = DMKFormCell.cellWithForm(self, tagName: "Date", type: "DMKDateCell", title: "Date", value: NSDate()) as! DMKDateCell
         
         let fullNameCell = DMKFormCell.cellWithForm(self, tagName: "FullName", type: "DMKTextfieldCell", title: "Full Name", value: "Peerasak Unsakon") as! DMKTextfieldCell
-        
 
         unitKindCell.onChangBlock = { (oldValue, newValue, cell) in
             fullNameCell.cellHidden = (unitKindCell.value as! String == "Bed")
@@ -39,5 +46,9 @@ class TestFormViewController: DMKFormViewController {
         form.addSection(section1)
         
         self.form = form
+    }
+    
+    @IBAction func valueButtonTapped(sender: AnyObject) {
+        debugPrint("values: \(self.form.getValues())")
     }
 }

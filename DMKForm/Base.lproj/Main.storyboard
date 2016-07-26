@@ -28,7 +28,13 @@
                             <outlet property="delegate" destination="bY8-dK-ezy" id="h9g-hQ-jEv"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="DMKFormViewController" id="Rda-Ze-X8Z"/>
+                    <navigationItem key="navigationItem" title="DMKFormViewController" id="Rda-Ze-X8Z">
+                        <barButtonItem key="rightBarButtonItem" title="values" id="OY4-Ta-1PJ">
+                            <connections>
+                                <action selector="valueButtonTapped:" destination="bY8-dK-ezy" id="qzh-gw-4Jg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zo9-YS-2LS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

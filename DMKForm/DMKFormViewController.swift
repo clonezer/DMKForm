@@ -45,6 +45,18 @@ class DMKForm {
             realSections.append(section)
         }
     }
+    
+    func getValues() -> [String: AnyObject]? {
+        var valueDict: [String: AnyObject] = Dictionary()
+        
+        for section in realSections {
+            for cell in section.realCells {
+                valueDict[cell.tagName!] = cell.value
+            }
+        }
+        
+        return valueDict
+    }
 }
 
 class DMKFormSection {

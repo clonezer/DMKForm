@@ -117,7 +117,7 @@ class DMKFormViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.registerNibName(["DMKNameCell", "DMKTextfieldCell", "DMKDateCell", "DMKTextViewCell", "DMKSegmentedCell"])
+        self.registerNibName(["DMKNameCell", "DMKTextfieldCell", "DMKDateCell", "DMKTextViewCell", "DMKSegmentedCell", "DMKStepperCell"])
     }
     
     func registerNibName(nibNames: [String]) {

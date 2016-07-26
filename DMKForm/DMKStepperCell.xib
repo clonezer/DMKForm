@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DMKStepperCell" rowHeight="55" id="KGk-i7-Jjw" customClass="DMKStepperCell" customModule="DMKForm" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PsV-YG-wdd">
+                        <rect key="frame" x="172" y="7" width="40" height="40"/>
+                        <color key="backgroundColor" red="0.22745098039215686" green="0.27843137254901962" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="Xra-9p-M87"/>
+                            <constraint firstAttribute="width" constant="40" id="eCJ-qW-X7Y"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                        <state key="normal" title="-">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="minusButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="vpa-VS-4U9"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fhi-LB-kOG">
+                        <rect key="frame" x="272" y="7" width="40" height="40"/>
+                        <color key="backgroundColor" red="0.84313725490196079" green="0.13725490196078433" blue="0.13725490196078433" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="Dor-gL-KTe"/>
+                            <constraint firstAttribute="width" constant="40" id="Or8-lG-A1N"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                        <state key="normal" title="+">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="plusButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="3FQ-dq-JNH"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nj0-CX-Aun">
+                        <rect key="frame" x="227" y="16" width="30" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="dgj-Rw-yFu"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Alk-VW-nhw">
+                        <rect key="frame" x="8" y="16" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Alk-VW-nhw" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="03d-kX-SlP"/>
+                    <constraint firstItem="Fhi-LB-kOG" firstAttribute="leading" secondItem="Nj0-CX-Aun" secondAttribute="trailing" constant="15" id="1XP-PI-sMq"/>
+                    <constraint firstItem="Alk-VW-nhw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="3fq-3X-AY3"/>
+                    <constraint firstItem="Nj0-CX-Aun" firstAttribute="leading" secondItem="PsV-YG-wdd" secondAttribute="trailing" constant="15" id="FjC-RT-auv"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Fhi-LB-kOG" secondAttribute="trailing" id="H23-e1-bb7"/>
+                    <constraint firstItem="Fhi-LB-kOG" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="LII-4z-R81"/>
+                    <constraint firstItem="PsV-YG-wdd" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="gGW-aW-eWj"/>
+                    <constraint firstItem="Nj0-CX-Aun" firstAttribute="centerY" secondItem="Fhi-LB-kOG" secondAttribute="centerY" id="tmG-HO-3hf"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="minusButton" destination="PsV-YG-wdd" id="Bfm-a0-wjo"/>
+                <outlet property="plusButton" destination="Fhi-LB-kOG" id="dPG-kh-Ay8"/>
+                <outlet property="titleLabel" destination="Alk-VW-nhw" id="Dx3-M7-bYK"/>
+                <outlet property="valueLabel" destination="Nj0-CX-Aun" id="hBZ-V8-QNy"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

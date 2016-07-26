@@ -48,9 +48,6 @@ extension DMKTextfieldCell: UITextFieldDelegate {
 
     func textFieldDidEndEditing(textField: UITextField) {
         self.value = textField.text
-        if let block = self.onChangBlock {
-            block(oldValue: nil, newValue: self.value, cell: self)
-        }
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {

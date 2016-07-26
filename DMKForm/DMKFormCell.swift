@@ -15,6 +15,9 @@ class DMKFormCell: UITableViewCell {
     var value: AnyObject? {
         didSet {
             self.update()
+            if let block = self.onChangBlock {
+                block(oldValue: nil, newValue: self.value, cell: self)
+            }
         }
     }
     var title: String? {
@@ -27,17 +30,20 @@ class DMKFormCell: UITableViewCell {
             self.update()
         }
     }
+    
     var options: [AnyObject] = []
     var height: CGFloat = 55
+    
     var cellDisable: Bool = false {
         didSet {
-//            self.update()
             self.disableCell()
         }
     }
     var cellHidden: Bool = false {
         didSet {
-            self.form!.reloadForm()
+            if self.form?.form != nil {
+                self.form!.reloadForm()
+            }
         }
     }
     var actionBlock: DMKActionBlock?

@@ -12,9 +12,11 @@ typealias DMKActionBlock = (cell: DMKFormCell) -> Void
 typealias DMKOnChangeBlock = (oldValue: AnyObject?, newValue: AnyObject?, cell: DMKFormCell) -> Void
 
 class DMKForm {
+    
     var disable: Bool = false {
         didSet {
-            debugPrint("do something when disable/enable form")
+            self.disableAllCell()
+            self.reloadData()
         }
     }
     
@@ -56,6 +58,14 @@ class DMKForm {
         }
         
         return valueDict
+    }
+    
+    func disableAllCell() {
+        for section in sections {
+            for cell in section.cells {
+                cell.cellDisable = self.disable
+            }
+        }
     }
 }
 

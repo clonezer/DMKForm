@@ -29,7 +29,12 @@ class DMKFormCell: UITableViewCell {
     }
     var options: [AnyObject] = []
     var height: CGFloat = 55
-    var cellDisable: Bool = false
+    var cellDisable: Bool = false {
+        didSet {
+//            self.update()
+            self.disableCell()
+        }
+    }
     var cellHidden: Bool = false {
         didSet {
             self.form!.reloadForm()
@@ -44,6 +49,10 @@ class DMKFormCell: UITableViewCell {
     }
     
     func configCell() {
+    
+    }
+    
+    func disableCell() {
     
     }
     

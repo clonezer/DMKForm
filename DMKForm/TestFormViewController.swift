@@ -9,6 +9,7 @@
 import UIKit
 
 class TestFormViewController: DMKFormViewController {
+    @IBOutlet weak var disableButton: UIBarButtonItem!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,5 +51,11 @@ class TestFormViewController: DMKFormViewController {
     
     @IBAction func valueButtonTapped(sender: AnyObject) {
         debugPrint("values: \(self.form.getValues())")
+    }
+    
+    @IBAction func disableButtonTapped(sender: AnyObject) {
+        self.form.disable = !self.form.disable
+        self.disableButton.title = (self.form.disable == true ? "enable" : "disable")
+        self.reloadForm()
     }
 }

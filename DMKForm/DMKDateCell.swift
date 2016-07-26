@@ -15,16 +15,9 @@ class DMKDateCell: DMKFormCell {
     @IBOutlet weak var datePicker: UIDatePicker!
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         datePicker.calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
-        
         self.actionBlock = { cell in
-            if self.height == 271 {
-                self.height = 55
-            }else {
-                self.height = 271
-            }
-            self.form?.tableView.reloadData()
+            self.extendCell()
         }
     }
 
@@ -43,11 +36,27 @@ class DMKDateCell: DMKFormCell {
         self.dateLabel.text = dateString
     }
     
+    override func disableCell() {
+        self.height = 55
+        self.form?.tableView.reloadData()
+    }
+    
     @IBAction func datePickerDidChanged(sender: AnyObject) {
         let datePicker = sender as! UIDatePicker
         self.value = datePicker.date
         if let block = self.onChangBlock {
             block(oldValue: nil, newValue: self.value, cell: self)
+        }
+    }
+    
+    func extendCell() {
+        if self.cellDisable == false {
+            if self.height == 271 {
+                self.height = 55
+            }else {
+                self.height = 271
+            }
+            self.form?.tableView.reloadData()
         }
     }
 }

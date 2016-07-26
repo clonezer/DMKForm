@@ -24,6 +24,10 @@ class DMKSegmentedCell: DMKFormCell {
         self.segmentedControl.selectedSegmentIndex = options.indexOf({$0 as! String == self.value as! String})!
     }
     
+    override func disableCell() {
+        self.segmentedControl.enabled = !self.cellDisable
+    }
+    
     override func configCell() {
         super.configCell()
         self.segmentedControl.removeAllSegments()

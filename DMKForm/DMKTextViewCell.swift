@@ -27,6 +27,10 @@ class DMKTextViewCell: DMKFormCell, UITextViewDelegate {
         self.titleLabel.text = self.title
         self.textView.text = self.value as? String
     }
+    
+    override func disableCell() {
+        self.textView.editable = !cellDisable
+    }
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

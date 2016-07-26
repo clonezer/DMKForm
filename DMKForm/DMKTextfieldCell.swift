@@ -22,10 +22,12 @@ class DMKTextfieldCell: DMKFormCell {
     }
     
     override func update() {
-        super.update()
-        
         self.titleLabel.text = self.title
         self.textField.text = self.value as? String
+    }
+    
+    override func disableCell() {
+        self.textField.enabled = !cellDisable
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -38,15 +40,15 @@ class DMKTextfieldCell: DMKFormCell {
 
 extension DMKTextfieldCell: UITextFieldDelegate {
 
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        
-        textField.resignFirstResponder()
+    func textFieldDidEndEditing(textField: UITextField) {
         self.value = textField.text
-        
         if let block = self.onChangBlock {
             block(oldValue: nil, newValue: self.value, cell: self)
         }
-        
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
         return true
     }
     

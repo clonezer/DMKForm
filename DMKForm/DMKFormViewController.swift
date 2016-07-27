@@ -50,12 +50,21 @@ class DMKForm {
     
     func getValues() -> [String: AnyObject]? {
         var valueDict: [String: AnyObject] = Dictionary()
-        
+        var noTagValues: [AnyObject] = []
         for section in realSections {
             for cell in section.realCells {
                 valueDict[cell.tagName!] = cell.value
+                if cell.tagName == "NoTag" {
+                    if let value = cell.value {
+                        noTagValues.append(value)
+                    }else {
+                        noTagValues.append("error")
+                    }
+                }
             }
         }
+        
+        valueDict["NoTag"] = noTagValues
         
         return valueDict
     }
@@ -73,8 +82,11 @@ class DMKFormSection {
     var title: String?
     var headerText: String?
     var footerText: String?
-    
     var numberOfRows: Int = 0
+    
+    var isMultivalues: Bool = false
+    var multivalueCellType: AnyObject?
+    var titleInSection: String?
     
     private var realCells: [DMKFormCell] = [] {
         didSet {
@@ -117,7 +129,7 @@ class DMKFormViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.registerNibName(["DMKNameCell", "DMKTextfieldCell", "DMKDateCell", "DMKTextViewCell", "DMKSegmentedCell", "DMKStepperCell", "DMKNumberFieldCell"])
+        self.registerNibName(["DMKNameCell", "DMKTextfieldCell", "DMKDateCell", "DMKTextViewCell", "DMKSegmentedCell", "DMKStepperCell", "DMKNumberFieldCell", "DMKButtonCell"])
     }
     
     func registerNibName(nibNames: [String]) {
@@ -142,7 +154,6 @@ class DMKFormViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-
         return self.form.getSection(indexPath.section).getCell(indexPath)
     }
     

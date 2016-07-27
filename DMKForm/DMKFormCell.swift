@@ -82,6 +82,16 @@ class DMKFormCell: UITableViewCell {
         return cell
     }
     
+    static func cellWithForm(formVC: DMKFormViewController, indexPath: NSIndexPath, tagName: String, type: String, title: String?, value: AnyObject?) -> AnyObject {
+        debugPrint("try to insert indexPath row: \(indexPath.row), section: \(indexPath.section)")
+        let cell = formVC.tableView.dequeueReusableCellWithIdentifier(type, forIndexPath: indexPath) as! DMKFormCell
+        cell.form = formVC
+        cell.tagName = tagName
+        cell.value = value
+        cell.title = title
+        return cell
+    }
+    
     static func cellWithForm(formVC: DMKFormViewController, tagName: String, type: String, title: String?, value: AnyObject?, options: [AnyObject]) -> AnyObject {
         let cell = formVC.tableView.dequeueReusableCellWithIdentifier(type) as! DMKFormCell
         cell.form = formVC

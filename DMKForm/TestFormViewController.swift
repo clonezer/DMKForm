@@ -34,12 +34,15 @@ class TestFormViewController: DMKFormViewController {
         let basePriceCell = DMKFormCell.cellWithForm(self, tagName: "BasePrice", type: "DMKNumberFieldCell", title: "Base Price", value: 0) as! DMKNumberFieldCell
         let extraPriceCell = DMKFormCell.cellWithForm(self, tagName: "ExtraPrice", type: "DMKNumberFieldCell", title: "Extra Price", value: 0) as! DMKNumberFieldCell
         
+        let addUnitCell = DMKFormCell.cellWithForm(self, tagName: "AddUnitButton", type: "DMKButtonCell", title: "Add New Unit", value: nil) as! DMKButtonCell
+        
         extraNumberCell.cellHidden = (unitKindCell.value as! String == "Per Bed")
         extraPriceCell.cellHidden = (extraNumberCell.value as! Int) <= 0
         
         unitKindCell.onChangBlock = { (oldValue, newValue, cell) in
             extraNumberCell.cellHidden = (unitKindCell.value as! String == "Per Bed")
         }
+        
         extraNumberCell.onChangBlock = { (oldValue, newValue, cell) in
             extraPriceCell.cellHidden = (newValue as! Int) <= 0
         }
@@ -66,11 +69,30 @@ class TestFormViewController: DMKFormViewController {
         section4.addCell(extraPriceCell)
         form.addSection(section4)
         
+        let section5 = DMKFormSection()
+        section5.headerText = "unit"
+        section5.isMultivalues = true
+        section5.multivalueCellType = DMKTextfieldCell.self
+        section5.addCell(DMKTextfieldCell.cellWithForm(self, tagName: "NoTag", type: "DMKTextfieldCell", title: "Unit No.", value: nil) as! DMKTextfieldCell)
+        form.addSection(section5)
+        
+        let section6 = DMKFormSection()
+        section6.addCell(addUnitCell)
+        form.addSection(section6)
+        
+        addUnitCell.actionBlock = { cell in
+            let cell = DMKTextfieldCell.cellWithForm(self, tagName: "NoTag", type: "DMKTextfieldCell", title: "Unit No.", value: nil) as! DMKTextfieldCell
+            section5.addCell(cell)
+            self.reloadForm()
+        }
+        
         self.form = form
     }
     
     @IBAction func valueButtonTapped(sender: AnyObject) {
         debugPrint("values: \(self.form.getValues())")
+        
+        debugPrint(self.form.getValues()!["NoTag"])
     }
     
     @IBAction func disableButtonTapped(sender: AnyObject) {

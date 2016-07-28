@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4FF2B090DC127A25B28BAFD7 /* Pods_DMKFormTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21251AC1FF5A0EE5F118E018 /* Pods_DMKFormTests.framework */; };
+		5B6683C3125B12AFA5DF672D /* Pods_DMKForm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 993832D7B7ACDE2DB6F043C0 /* Pods_DMKForm.framework */; };
 		635910FD1D473F980071D59A /* DMKStepperCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635910FB1D473F980071D59A /* DMKStepperCell.swift */; };
 		635910FE1D473F980071D59A /* DMKStepperCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 635910FC1D473F980071D59A /* DMKStepperCell.xib */; };
 		635911031D47559F0071D59A /* DMKNumberFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635911011D47559F0071D59A /* DMKNumberFieldCell.swift */; };
@@ -44,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		21251AC1FF5A0EE5F118E018 /* Pods_DMKFormTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DMKFormTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B3B6A47E8D9DADF9EA8ECC4 /* Pods-DMKFormTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DMKFormTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DMKFormTests/Pods-DMKFormTests.debug.xcconfig"; sourceTree = "<group>"; };
 		635910FB1D473F980071D59A /* DMKStepperCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMKStepperCell.swift; sourceTree = "<group>"; };
 		635910FC1D473F980071D59A /* DMKStepperCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMKStepperCell.xib; sourceTree = "<group>"; };
 		635911011D47559F0071D59A /* DMKNumberFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMKNumberFieldCell.swift; sourceTree = "<group>"; };
@@ -72,6 +76,10 @@
 		6395AD1F1D46363D00F83D3F /* DMKTextViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMKTextViewCell.xib; sourceTree = "<group>"; };
 		6395AD231D4683E800F83D3F /* DMKSegmentedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMKSegmentedCell.swift; sourceTree = "<group>"; };
 		6395AD241D4683E800F83D3F /* DMKSegmentedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMKSegmentedCell.xib; sourceTree = "<group>"; };
+		993832D7B7ACDE2DB6F043C0 /* Pods_DMKForm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DMKForm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4638A02B43D077D64C43903 /* Pods-DMKForm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DMKForm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DMKForm/Pods-DMKForm.debug.xcconfig"; sourceTree = "<group>"; };
+		A763A3CF4FA83D0EA24C99F7 /* Pods-DMKForm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DMKForm.release.xcconfig"; path = "Pods/Target Support Files/Pods-DMKForm/Pods-DMKForm.release.xcconfig"; sourceTree = "<group>"; };
+		D399601F93D8D11B638509F7 /* Pods-DMKFormTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DMKFormTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DMKFormTests/Pods-DMKFormTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B6683C3125B12AFA5DF672D /* Pods_DMKForm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,18 +95,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FF2B090DC127A25B28BAFD7 /* Pods_DMKFormTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E85B0860573A55BF7E06CD0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A4638A02B43D077D64C43903 /* Pods-DMKForm.debug.xcconfig */,
+				A763A3CF4FA83D0EA24C99F7 /* Pods-DMKForm.release.xcconfig */,
+				2B3B6A47E8D9DADF9EA8ECC4 /* Pods-DMKFormTests.debug.xcconfig */,
+				D399601F93D8D11B638509F7 /* Pods-DMKFormTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		638244171D447A26000E542A = {
 			isa = PBXGroup;
 			children = (
 				638244221D447A27000E542A /* DMKForm */,
 				638244371D447A27000E542A /* DMKFormTests */,
 				638244211D447A27000E542A /* Products */,
+				1E85B0860573A55BF7E06CD0 /* Pods */,
+				846FCBE5C6BC0A2EB8E6745C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -166,6 +189,15 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
+		846FCBE5C6BC0A2EB8E6745C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				993832D7B7ACDE2DB6F043C0 /* Pods_DMKForm.framework */,
+				21251AC1FF5A0EE5F118E018 /* Pods_DMKFormTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -173,9 +205,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6382443D1D447A27000E542A /* Build configuration list for PBXNativeTarget "DMKForm" */;
 			buildPhases = (
+				7F3BF006843CC3104592DA0C /* [CP] Check Pods Manifest.lock */,
 				6382441C1D447A27000E542A /* Sources */,
 				6382441D1D447A27000E542A /* Frameworks */,
 				6382441E1D447A27000E542A /* Resources */,
+				58A9AC14371896D5F4415BDC /* [CP] Embed Pods Frameworks */,
+				12A16F48D10631F8CA3294D9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -190,9 +225,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 638244401D447A27000E542A /* Build configuration list for PBXNativeTarget "DMKFormTests" */;
 			buildPhases = (
+				F536EDF6C5C6535BE86436B8 /* [CP] Check Pods Manifest.lock */,
 				638244301D447A27000E542A /* Sources */,
 				638244311D447A27000E542A /* Frameworks */,
 				638244321D447A27000E542A /* Resources */,
+				14E5083914C8AAFD61EE674C /* [CP] Embed Pods Frameworks */,
+				FB33ACF57FA3DEFAB9A3AAAC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -270,6 +308,99 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		12A16F48D10631F8CA3294D9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DMKForm/Pods-DMKForm-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		14E5083914C8AAFD61EE674C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DMKFormTests/Pods-DMKFormTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		58A9AC14371896D5F4415BDC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DMKForm/Pods-DMKForm-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7F3BF006843CC3104592DA0C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F536EDF6C5C6535BE86436B8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FB33ACF57FA3DEFAB9A3AAAC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DMKFormTests/Pods-DMKFormTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6382441C1D447A27000E542A /* Sources */ = {
@@ -416,6 +547,7 @@
 		};
 		6382443E1D447A27000E542A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4638A02B43D077D64C43903 /* Pods-DMKForm.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -430,6 +562,7 @@
 		};
 		6382443F1D447A27000E542A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A763A3CF4FA83D0EA24C99F7 /* Pods-DMKForm.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -444,6 +577,7 @@
 		};
 		638244411D447A27000E542A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B3B6A47E8D9DADF9EA8ECC4 /* Pods-DMKFormTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = DMKFormTests/Info.plist;
@@ -456,6 +590,7 @@
 		};
 		638244421D447A27000E542A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D399601F93D8D11B638509F7 /* Pods-DMKFormTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = DMKFormTests/Info.plist;

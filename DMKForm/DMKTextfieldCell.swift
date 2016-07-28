@@ -46,11 +46,26 @@ class DMKTextfieldCell: DMKFormCell {
             self.textField.becomeFirstResponder()
         }
         
+        self.showError()
+        
         self.titleLabel.text = cellInfo.title
         self.textField.placeholder = cellInfo.placeholder
         self.titleLabel.text = cellInfo.title
         self.textField.text = cellInfo.value as? String
         self.textField.enabled = !cellInfo.disable
+    }
+    
+    override func showError() {
+        guard
+            let cellInfo = self.cellInfo as? DMKTextfieldCellInfo,
+            let formVC = self.cellInfo?.formViewController
+            else { return }
+        
+        if cellInfo.validate == false {
+            self.titleLabel.textColor = UIColor.redColor()
+        }else {
+            self.titleLabel.textColor = formVC.titleColor
+        }
     }
         
 }
@@ -58,8 +73,19 @@ class DMKTextfieldCell: DMKFormCell {
 extension DMKTextfieldCell: UITextFieldDelegate {
 
     func textFieldDidEndEditing(textField: UITextField) {
-        self.cellInfo?.value = textField.text
+        
+        guard let cellInfo = self.cellInfo else { return }
+        
+        cellInfo.value = textField.text
         self.update()
+
+        if let validatorBlock = cellInfo.validatorBlock {
+            cellInfo.validate = validatorBlock(cellInfo: cellInfo)
+        }
+        
+        if let changeBlock = cellInfo.onChangBlock {
+            changeBlock(value: textField.text!)
+        }
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {

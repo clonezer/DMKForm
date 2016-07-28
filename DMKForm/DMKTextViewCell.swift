@@ -57,7 +57,7 @@ class DMKTextViewCell: DMKFormCell, UITextViewDelegate {
         guard let cellInfo = self.cellInfo else { return }
         cellInfo.value = textView.text
         if let block = cellInfo.onChangBlock {
-            block(oldValue: nil, newValue: textView.text, cell: self)
+            block(value: textView.text)
         }
         self.update()
     }

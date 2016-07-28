@@ -71,7 +71,7 @@ class DMKDateCell: DMKFormCell {
         let datePicker = sender as! UIDatePicker
         self.cellInfo?.value = datePicker.date
         if let block = self.cellInfo?.onChangBlock {
-            block(oldValue: nil, newValue: datePicker.date, cell: self)
+            block(value: datePicker.date)
         }
         self.update()
     }

@@ -8,9 +8,9 @@
 
 import UIKit
 
-typealias DMKActionBlock = (cell: DMKFormCell?) -> Void
-typealias DMKDidSelectBlock = (cell: DMKFormCellInfo?) -> Void
-typealias DMKOnChangeBlock = (oldValue: AnyObject?, newValue: AnyObject?, cell: DMKFormCell) -> Void
+typealias DMKActionBlock = (cellInfo: DMKFormCellInfo) -> Void
+typealias DMKOnChangeBlock = (value: AnyObject) -> Void
+typealias DMKValidateBlock = (cellInfo: DMKFormCellInfo) -> Bool
 
 class DMKForm {
     
@@ -81,6 +81,27 @@ class DMKForm {
             }
         }
     }
+    
+    func isValidate() -> Bool {
+        for section in _sectionInfos {
+            for cell in section._cellInfos {
+                
+                if cell.required == true && cell.value == nil {
+                    return false
+                }
+                
+                if let block = cell.validatorBlock {
+                    if block(cellInfo: cell) == false {
+                        cell.validate = false
+                        return false
+                    }else {
+                        cell.validate = true
+                    }
+                }
+            }
+        }
+        return true
+    }
 }
 
 class DMKFormSectionInfo {
@@ -139,17 +160,19 @@ class DMKFormCellInfo {
     var tag: String?
     var title: String?
     var cellType: String?
-    var hidden: Bool = false
-    var disable: Bool = false
-    var deletable: Bool = false
     var value: AnyObject?
     var options: [AnyObject]? = []
     var height: CGFloat = 55
+    var required: Bool = false
+    var hidden: Bool = false
+    var disable: Bool = false
+    var deletable: Bool = false
+    var validate: Bool = true
     
     var formViewController: DMKFormViewController?
-    var didSelectBlock: DMKDidSelectBlock?
     var actionBlock: DMKActionBlock?
     var onChangBlock: DMKOnChangeBlock?
+    var validatorBlock: DMKValidateBlock?
     
     init(tag: String, title: String, type: String, value: AnyObject?, options: [AnyObject]?, formVC: DMKFormViewController) {
         self.tag = tag
@@ -237,7 +260,7 @@ class DMKFormViewController: UITableViewController {
 
         let cellInfo = self.form.getSectionInfo(indexPath.section).getCellInfo(indexPath.row)
         if let block = cellInfo.actionBlock {
-            block(cell: nil)
+            block(cellInfo: cellInfo)
         }
     }
     

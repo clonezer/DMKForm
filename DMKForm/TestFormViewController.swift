@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftValidators
 
 class TestFormViewController: DMKFormViewController {
     @IBOutlet weak var disableButton: UIBarButtonItem!
@@ -19,10 +20,12 @@ class TestFormViewController: DMKFormViewController {
         let section = DMKFormSectionInfo(tag: "General", title: "General", extendable: false)
         let segmentedCell = DMKSegmentedCellInfo(tag: "Segmented", title: "Select", type: String(DMKSegmentedCell.self), value: "Type A", options: ["Type A", "Type B"], formVC: self)
         section.addCellInfo(segmentedCell)
-        let nameCell = DMKTextfieldCellInfo(tag: "Name", title: "Full Name", type: String(DMKTextfieldCell.self), value: "Peerasak Unsakon", options: nil, formVC: self)
-        section.addCellInfo(nameCell)
-        let emailCell = DMKNameCellInfo(tag: "Email", title: "Email", type: String(DMKNameCell.self), value: "clonezer@gmail.com", options: nil, formVC: self)
+        
+        let emailCell = DMKTextfieldCellInfo(tag: "Email", title: "Email", type: String(DMKTextfieldCell.self), value: nil, options: nil, formVC: self)
         section.addCellInfo(emailCell)
+        
+        let emailInfoCell = DMKNameCellInfo(tag: "EmailInfo", title: "Email Info", type: String(DMKNameCell.self), value: emailCell.value, options: nil, formVC: self)
+        section.addCellInfo(emailInfoCell)
         let cardCell = DMKTextfieldCellInfo(tag: "IDCard", title: "ID Card", type: String(DMKTextfieldCell.self), value: "12345", options: nil, formVC: self)
         section.addCellInfo(cardCell)
         form.addSectionInfo(section)
@@ -49,8 +52,19 @@ class TestFormViewController: DMKFormViewController {
         
         self.form = form
         
-        segmentedCell.onChangBlock = { (_, newValue, _) in
-            cardCell.hidden = (newValue as! String == "Type B")
+        emailCell.validatorBlock = { cellInfo in
+            if let value = cellInfo.value as? String {
+                return Validator.isEmail(value)
+            }
+            return false
+        }
+        emailCell.onChangBlock = { value in
+            emailInfoCell.value = value as? String
+            self.reloadForm()
+        }
+        
+        segmentedCell.onChangBlock = { value in
+            cardCell.hidden = (value as! String == "Type B")
             self.reloadForm()
         }
         
@@ -65,8 +79,14 @@ class TestFormViewController: DMKFormViewController {
     }
     
     @IBAction func valueButtonTapped(sender: AnyObject) {
-        debugPrint("==== values ====")
-        debugPrint(self.form.getValues())
+        if self.form.isValidate() {
+            debugPrint("==== values ====")
+            debugPrint(self.form.getValues())
+        }else {
+            debugPrint("==== form invalid ====")
+            self.reloadForm()
+        }
+        
     }
     
     @IBAction func disableButtonTapped(sender: AnyObject) {

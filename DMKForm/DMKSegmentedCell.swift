@@ -58,7 +58,7 @@ class DMKSegmentedCell: DMKFormCell {
         guard let options = self.cellInfo?.options else { return }
         self.cellInfo?.value = options[segmentedControl.selectedSegmentIndex] as! String
         if let block = self.cellInfo!.onChangBlock {
-            block(oldValue: nil, newValue: options[segmentedControl.selectedSegmentIndex] as! String, cell: self)
+            block(value: options[segmentedControl.selectedSegmentIndex])
         }
     }
 }

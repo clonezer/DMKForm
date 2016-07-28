@@ -19,6 +19,10 @@ class DMKFormCell: UITableViewCell {
     func configCell() {
     
     }
+    
+    func showError() {
+    
+    }
         
     override func awakeFromNib() {
         super.awakeFromNib()

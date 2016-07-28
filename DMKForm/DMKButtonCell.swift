@@ -38,7 +38,7 @@ class DMKButtonCell: DMKFormCell {
     @IBAction func buttonTapped(sender: AnyObject) {
         guard self.cellInfo?.disable == false else { return }
         if let block = self.cellInfo?.actionBlock {
-            block(cell: self)
+            block(cellInfo: self.cellInfo!)
         }
     }
 }

@@ -17,9 +17,6 @@ class DMKFormCell: UITableViewCell {
     var value: AnyObject? {
         didSet {
             self.update()
-//            if let block = self.cellInfo!.onChangBlock {
-//                block(oldValue: nil, newValue: self.value, cell: self)
-//            }
         }
     }
     var title: String? {

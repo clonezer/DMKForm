@@ -21,11 +21,15 @@ class DMKButtonCell: DMKFormCell {
         // Initialization code
     }
 
+    override func configCell() {
+        self.update()
+    }
+    
     override func update() {
-        guard let title = self.title, let form = self.form else { return }
+        guard let title = self.cellInfo?.title, let formVC = self.cellInfo?.formViewController else { return }
         self.button.setAttributedTitle(NSAttributedString(string: title, attributes: [
-                NSForegroundColorAttributeName: form.tintColor,
-                NSFontAttributeName: form.titleFont
+            NSForegroundColorAttributeName: formVC.tintColor,
+            NSFontAttributeName: formVC.titleFont
             ]), forState: .Normal)
     }
     

@@ -16,26 +16,38 @@ class DMKTextViewCell: DMKFormCell, UITextViewDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.textView.delegate = self
-        self.height = 200
         self.actionBlock = { cell in
             self.textView.becomeFirstResponder()
         }
     }
     
+    override func configCell() {
+        guard let formVC = self.cellInfo?.formViewController else { return }
+        
+        self.titleLabel.font = formVC.titleFont
+        self.titleLabel.textColor = formVC.titleColor
+        self.textView.font = formVC.detailFont
+        self.textView.textColor = formVC.detailColor
+        self.contentView.backgroundColor = formVC.cellColor
+        
+        self.update()
+    }
+    
     override func update() {
-        self.titleLabel.font = self.form?.titleFont
-        self.titleLabel.textColor = self.form?.titleColor
-        self.textView.font = self.form?.detailFont
-        self.textView.textColor = self.form?.detailColor
-        self.contentView.backgroundColor = self.form?.cellColor
+        guard let cellInfo = self.cellInfo else {
+            self.titleLabel.text = "ERROR"
+            self.textView.text = "ERROR"
+            return
+        }
         
-        
-        self.titleLabel.text = self.title
-        self.textView.text = self.value as? String
+        cellInfo.height = 85
+        self.titleLabel.text = cellInfo.title
+        self.textView.text = cellInfo.value as? String
     }
     
     override func disableCell() {
-        self.textView.editable = !cellDisable
+        guard let cellInfo = self.cellInfo else { return }
+        self.textView.editable = !cellInfo.disable
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -45,10 +57,11 @@ class DMKTextViewCell: DMKFormCell, UITextViewDelegate {
     }
     
     func textViewDidEndEditing(textView: UITextView) {
-        self.value = textView.text
+        self.cellInfo?.value = textView.text
         if let block = self.onChangBlock {
-            block(oldValue: nil, newValue: self.value, cell: self)
+            block(oldValue: nil, newValue: textView.text, cell: self)
         }
+        self.update()
     }
     
 }

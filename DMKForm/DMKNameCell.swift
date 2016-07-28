@@ -17,14 +17,22 @@ class DMKNameCell: DMKFormCell {
         super.awakeFromNib()
     }
     
-    override func update() {
-        self.titleLabel.font = self.form?.titleFont
-        self.titleLabel.textColor = self.form?.titleColor
-        self.detailLabel.font = self.form?.detailFont
-        self.detailLabel.textColor = self.form?.detailColor
-        self.contentView.backgroundColor = self.form?.cellColor
+    override func configCell() {
+        guard let formVC = self.cellInfo?.formViewController else { return }
         
-        self.titleLabel.text = self.title
-        self.detailLabel.text = self.value as? String
+        self.titleLabel.font = formVC.titleFont
+        self.titleLabel.textColor = formVC.titleColor
+        self.detailLabel.font = formVC.detailFont
+        self.detailLabel.textColor = formVC.detailColor
+        self.contentView.backgroundColor = formVC.cellColor
+        
+        self.update()
+    }
+    
+    override func update() {
+        guard let cellInfo = self.cellInfo else { return }
+        
+        self.titleLabel.text = cellInfo.title
+        self.detailLabel.text = cellInfo.value as? String
     }
 }

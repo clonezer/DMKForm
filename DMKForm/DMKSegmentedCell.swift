@@ -17,16 +17,26 @@ class DMKSegmentedCell: DMKFormCell {
         super.awakeFromNib()
     }
     
+    override func configCell() {
+        guard let formVC = self.cellInfo?.formViewController, let options = self.cellInfo?.options else { return }
+        
+        self.titleLabel.font = formVC.titleFont
+        self.titleLabel.textColor = formVC.titleColor
+        self.segmentedControl.tintColor = formVC.tintColor
+        self.contentView.backgroundColor = formVC.cellColor
+        
+        self.segmentedControl.removeAllSegments()
+        for (index, option) in options.enumerate() {
+            let name = option as! String
+            self.segmentedControl.insertSegmentWithTitle(name, atIndex: index, animated: false)
+        }
+        
+        self.update()
+    }
+    
     override func update() {
-        super.update()
-        guard let value = self.value, let options = self.options else { return }
-        
-        self.titleLabel.font = self.form?.titleFont
-        self.titleLabel.textColor = self.form?.titleColor
-        self.segmentedControl.tintColor = self.form?.tintColor
-        self.contentView.backgroundColor = self.form?.cellColor
-        
-        self.titleLabel.text = self.title
+        guard let cellInfo = self.cellInfo, let value = self.cellInfo?.value, let options = self.cellInfo?.options else { return }
+        self.titleLabel.text = cellInfo.title
         self.segmentedControl.selectedSegmentIndex = options.indexOf({$0 as! String == value as! String})!
     }
     
@@ -34,15 +44,6 @@ class DMKSegmentedCell: DMKFormCell {
         self.segmentedControl.enabled = !self.cellInfo!.disable
     }
     
-    override func configCell() {
-        super.configCell()
-        self.segmentedControl.removeAllSegments()
-        for (index, option) in self.options!.enumerate() {
-            let name = option as! String
-            self.segmentedControl.insertSegmentWithTitle(name, atIndex: index, animated: false)
-        }
-    }
-
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -51,11 +52,10 @@ class DMKSegmentedCell: DMKFormCell {
     
     @IBAction func segmentedValueChanged(sender: AnyObject) {
         let segmentedControl = sender as! UISegmentedControl
-        self.value = self.options![segmentedControl.selectedSegmentIndex] as! String
-        self.cellInfo?.value = self.value
-        
+        guard let options = self.cellInfo?.options else { return }
+        self.cellInfo?.value = options[segmentedControl.selectedSegmentIndex] as! String
         if let block = self.cellInfo!.onChangBlock {
-            block(oldValue: nil, newValue: self.value, cell: self)
+            block(oldValue: nil, newValue: options[segmentedControl.selectedSegmentIndex] as! String, cell: self)
         }
     }
 }

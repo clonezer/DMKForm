@@ -22,18 +22,22 @@ class DMKStepperCell: DMKFormCell {
         super.awakeFromNib()
     }
 
+    override func configCell() {
+        guard let formVC = self.cellInfo?.formViewController else { return }
+        
+        self.titleLabel.font = formVC.titleFont
+        self.titleLabel.textColor = formVC.titleColor
+        self.valueLabel.font = formVC.detailFont
+        self.valueLabel.textColor = formVC.detailColor
+        self.contentView.backgroundColor = formVC.cellColor
+        
+        self.update()
+    }
+    
     override func update() {
-        
-        guard let title = self.title, let value = self.value, let cellInfo = self.cellInfo else { return }
-        
-        self.titleLabel.font = cellInfo.formViewController?.titleFont
-        self.titleLabel.textColor = cellInfo.formViewController?.titleColor
-        self.valueLabel.font = cellInfo.formViewController?.detailFont
-        self.valueLabel.textColor = cellInfo.formViewController?.detailColor
-        self.contentView.backgroundColor = cellInfo.formViewController?.cellColor
-        
-        self.titleLabel.text = title
-        self.valueLabel.text = "\(value as! Int)"
+        guard let cellInfo = self.cellInfo else { return }
+        self.titleLabel.text = cellInfo.title
+        self.valueLabel.text = "\(cellInfo.value as! Int)"
     }
     
     override func disableCell() {
@@ -48,20 +52,24 @@ class DMKStepperCell: DMKFormCell {
     }
     
     @IBAction func plusButtonTapped(sender: AnyObject) {
-        var value = self.value as! Int
+        guard let cellInfo = self.cellInfo else { return }
+        
+        var value = cellInfo.value as! Int
         if value < self.maximumValue {
             value = value + 1
         }
-        self.value = value
+        cellInfo.value = value
         self.update()
     }
     
     @IBAction func minusButtonTapped(sender: AnyObject) {
-        var value = self.value as! Int
+        guard let cellInfo = self.cellInfo else { return }
+        
+        var value = cellInfo.value as! Int
         if value > self.minimumValue {
             value = value - 1
         }
-        self.value = value
+        cellInfo.value = value
         self.update()
     }
     

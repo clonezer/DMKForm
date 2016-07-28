@@ -17,31 +17,33 @@ class TestFormViewController: DMKFormViewController {
         let form = DMKForm()
         
         let section = DMKFormSectionInfo(tag: "General", title: "General", extendable: false)
-        
         let segmentedCell = DMKFormCellInfo(tag: "Segmented", title: "Select", type: String(DMKSegmentedCell.self), value: "Type A", options: ["Type A", "Type B"], formVC: self)
         section.addCellInfo(segmentedCell)
-        
         let nameCell = DMKFormCellInfo(tag: "Name", title: "Full Name", type: String(DMKTextfieldCell.self), value: "Peerasak Unsakon", options: nil, formVC: self)
         section.addCellInfo(nameCell)
-        
+        let emailCell = DMKFormCellInfo(tag: "Email", title: "Email", type: String(DMKNameCell.self), value: "clonezer@gmail.com", options: nil, formVC: self)
+        section.addCellInfo(emailCell)
         let cardCell = DMKFormCellInfo(tag: "IDCard", title: "ID Card", type: String(DMKTextfieldCell.self), value: "12345", options: nil, formVC: self)
         section.addCellInfo(cardCell)
-        
-        let stepperCell = DMKFormCellInfo(tag: "Stepper", title: "Stepper", type: String(DMKStepperCell.self), value: 0, options: nil, formVC: self)
-        section.addCellInfo(stepperCell)
-        
-        let dateCell = DMKFormCellInfo(tag: "Date", title: "Datetime", type: String(DMKDateCell.self), value: NSDate(), options: nil, formVC: self)
-        section.addCellInfo(dateCell)
-        
         form.addSectionInfo(section)
+        
+        let section1 = DMKFormSectionInfo(tag: "TextDetail", title: "Detail", extendable: false)
+        let textViewCell = DMKFormCellInfo(tag: "Detail", title: "Description", type: String(DMKTextViewCell.self), value: "", options: nil, formVC: self)
+        section1.addCellInfo(textViewCell)
+        let stepperCell = DMKFormCellInfo(tag: "Stepper", title: "Stepper", type: String(DMKStepperCell.self), value: 0, options: nil, formVC: self)
+        section1.addCellInfo(stepperCell)
+        let dateCell = DMKFormCellInfo(tag: "Date", title: "Datetime", type: String(DMKDateCell.self), value: NSDate(), options: nil, formVC: self)
+        section1.addCellInfo(dateCell)
+        form.addSectionInfo(section1)
         
         let section2 = DMKFormSectionInfo(tag: "Unit", title: "Unit", extendable: true)
         form.addSectionInfo(section2)
+        
         let section3 = DMKFormSectionInfo(tag: "Button", title: "", extendable: false)
         let newUnitButtonCell = DMKFormCellInfo(tag: "UnitButton", title: "Add New Unit", type: String(DMKButtonCell.self), value: nil, options: nil, formVC: self)
         section3.addCellInfo(newUnitButtonCell)
-        form.addSectionInfo(section3)
         
+        form.addSectionInfo(section3)
         
         self.form = form
         

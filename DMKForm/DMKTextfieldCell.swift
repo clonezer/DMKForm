@@ -16,20 +16,28 @@ class DMKTextfieldCell: DMKFormCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.textField.delegate = self
-        self.actionBlock = { cell in
+    }
+    
+    override func configCell() {
+        guard
+            let cellInfo = self.cellInfo,
+            let formVC = self.cellInfo?.formViewController else { return }
+        
+        cellInfo.actionBlock = { cell in
             self.textField.becomeFirstResponder()
         }
+        
+        self.titleLabel.font = formVC.titleFont
+        self.titleLabel.textColor = formVC.titleColor
+        self.textField.font = formVC.detailFont
+        self.textField.textColor = formVC.detailColor
+        self.contentView.backgroundColor = formVC.cellColor
+        
+        self.update()
     }
     
     override func update() {
         guard let cellInfo = self.cellInfo else { return }
-        
-        self.titleLabel.font = self.form?.titleFont
-        self.titleLabel.textColor = self.form?.titleColor
-        self.textField.font = self.form?.detailFont
-        self.textField.textColor = self.form?.detailColor
-        self.contentView.backgroundColor = self.form?.cellColor
-        
         self.titleLabel.text = cellInfo.title
         self.textField.text = cellInfo.value as? String
     }
@@ -50,10 +58,10 @@ extension DMKTextfieldCell: UITextFieldDelegate {
 
     func textFieldDidEndEditing(textField: UITextField) {
         self.cellInfo?.value = textField.text
+        self.update()
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-//        self.cellInfo?.value = textField.text
         textField.resignFirstResponder()
         return true
     }

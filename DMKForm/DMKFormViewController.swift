@@ -248,15 +248,15 @@ class DMKFormViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(cellInfo.cellType!, forIndexPath: indexPath) as! DMKFormCell
         
-        cell.options = cellInfo.options
+//        cell.options = cellInfo.options
         cell.cellInfo = cellInfo
-        cell.title = cellInfo.title
-        cell.value = cellInfo.value
-        cell.form = cellInfo.formViewController
-        cell.cellDisable = cellInfo.disable
-        cell.height = cellInfo.height
+//        cell.title = cellInfo.title
+//        cell.value = cellInfo.value
+//        cell.form = cellInfo.formViewController
+//        cell.cellDisable = cellInfo.disable
+//        cell.height = cellInfo.height
         cell.configCell()
-        cell.update()
+//        cell.update()
         
         return cell
     }

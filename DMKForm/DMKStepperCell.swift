@@ -38,11 +38,8 @@ class DMKStepperCell: DMKFormCell {
         guard let cellInfo = self.cellInfo else { return }
         self.titleLabel.text = cellInfo.title
         self.valueLabel.text = "\(cellInfo.value as! Int)"
-    }
-    
-    override func disableCell() {
-        plusButton.enabled = !self.cellDisable
-        minusButton.enabled = !self.cellDisable
+        self.plusButton.enabled = !cellInfo.disable
+        self.minusButton.enabled = !cellInfo.disable
     }
     
     override func setSelected(selected: Bool, animated: Bool) {

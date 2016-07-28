@@ -16,9 +16,7 @@ class DMKNumberFieldCell: DMKFormCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.textField.delegate = self
-        self.actionBlock = { cell in
-            self.textField.becomeFirstResponder()
-        }
+        
     }
     
     override func configCell() {
@@ -33,16 +31,18 @@ class DMKNumberFieldCell: DMKFormCell {
     
     override func update() {
         guard let cellInfo = self.cellInfo else { return }
+        
+        cellInfo.actionBlock = { cell in
+            self.textField.becomeFirstResponder()
+        }
+        
         self.titleLabel.text = cellInfo.title
-        guard let value = self.value else {
-            self.value = 0
+        guard let value = cellInfo.value else {
+            cellInfo.value = 0
             return
         }
         self.textField.text = "\(value as! Double)"
-    }
-    
-    override func disableCell() {
-        self.textField.enabled = !cellDisable
+        self.textField.enabled = !cellInfo.disable
     }
     
     override func setSelected(selected: Bool, animated: Bool) {
@@ -57,14 +57,14 @@ extension DMKNumberFieldCell: UITextFieldDelegate {
     
     func textFieldDidEndEditing(textField: UITextField) {
         guard let value = textField.text else {
-            self.value = 0
+            self.cellInfo?.value = 0
             return
         }
         
         if let num = Double(value) {
-            self.value = num
+            self.cellInfo?.value = num
         }else {
-            self.value = 0
+            self.cellInfo?.value = 0
         }
     }
     

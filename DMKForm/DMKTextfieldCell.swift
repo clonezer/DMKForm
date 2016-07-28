@@ -40,18 +40,9 @@ class DMKTextfieldCell: DMKFormCell {
         guard let cellInfo = self.cellInfo else { return }
         self.titleLabel.text = cellInfo.title
         self.textField.text = cellInfo.value as? String
+        self.textField.enabled = !cellInfo.disable
     }
-    
-    override func disableCell() {
-        self.textField.enabled = !self.cellInfo!.disable
-    }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
+        
 }
 
 extension DMKTextfieldCell: UITextFieldDelegate {

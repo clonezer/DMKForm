@@ -16,9 +16,6 @@ class DMKTextViewCell: DMKFormCell, UITextViewDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.textView.delegate = self
-        self.actionBlock = { cell in
-            self.textView.becomeFirstResponder()
-        }
     }
     
     override func configCell() {
@@ -40,25 +37,20 @@ class DMKTextViewCell: DMKFormCell, UITextViewDelegate {
             return
         }
         
+        cellInfo.actionBlock = { cell in
+            self.textView.becomeFirstResponder()
+        }
+        
         cellInfo.height = 85
         self.titleLabel.text = cellInfo.title
         self.textView.text = cellInfo.value as? String
-    }
-    
-    override func disableCell() {
-        guard let cellInfo = self.cellInfo else { return }
         self.textView.editable = !cellInfo.disable
-    }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func textViewDidEndEditing(textView: UITextView) {
-        self.cellInfo?.value = textView.text
-        if let block = self.onChangBlock {
+        guard let cellInfo = self.cellInfo else { return }
+        cellInfo.value = textView.text
+        if let block = cellInfo.onChangBlock {
             block(oldValue: nil, newValue: textView.text, cell: self)
         }
         self.update()

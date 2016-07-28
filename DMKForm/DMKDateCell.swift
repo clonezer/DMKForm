@@ -48,10 +48,10 @@ class DMKDateCell: DMKFormCell {
         dateFormatter.dateFormat = "dd MMM yyyy"
         let dateString = dateFormatter.stringFromDate(cellInfo.value as! NSDate)
         self.dateLabel.text = dateString
-    }
-    
-    override func disableCell() {
-        self.height = 55
+        
+        if cellInfo.disable == true {
+            cellInfo.height = 55
+        }
     }
     
     @IBAction func datePickerDidChanged(sender: AnyObject) {
@@ -64,15 +64,14 @@ class DMKDateCell: DMKFormCell {
     }
     
     func extendCell() {
-        if self.cellDisable == false {
-            if self.height == 271 {
-                self.height = 55
-                self.cellInfo?.height = 55
+        guard let cellInfo = self.cellInfo, let disable = self.cellInfo?.disable else { return }
+        if disable == false {
+            if cellInfo.height == 271 {
+                cellInfo.height = 55
             }else {
-                self.height = 271
-                self.cellInfo?.height = 271
+                cellInfo.height = 271
             }
-            self.cellInfo?.formViewController?.reloadForm()
+            cellInfo.formViewController?.reloadForm()
         }
     }
 }

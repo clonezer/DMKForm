@@ -38,10 +38,7 @@ class DMKSegmentedCell: DMKFormCell {
         guard let cellInfo = self.cellInfo, let value = self.cellInfo?.value, let options = self.cellInfo?.options else { return }
         self.titleLabel.text = cellInfo.title
         self.segmentedControl.selectedSegmentIndex = options.indexOf({$0 as! String == value as! String})!
-    }
-    
-    override func disableCell() {
-        self.segmentedControl.enabled = !self.cellInfo!.disable
+        self.segmentedControl.enabled = !cellInfo.disable
     }
     
     override func setSelected(selected: Bool, animated: Bool) {

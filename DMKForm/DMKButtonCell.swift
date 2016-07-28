@@ -26,21 +26,12 @@ class DMKButtonCell: DMKFormCell {
     }
     
     override func update() {
-        guard let title = self.cellInfo?.title, let formVC = self.cellInfo?.formViewController else { return }
+        guard let cellInfo = self.cellInfo, let title = self.cellInfo?.title, let formVC = self.cellInfo?.formViewController else { return }
         self.button.setAttributedTitle(NSAttributedString(string: title, attributes: [
             NSForegroundColorAttributeName: formVC.tintColor,
             NSFontAttributeName: formVC.titleFont
             ]), forState: .Normal)
-    }
-    
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
-    override func disableCell() {
-        self.button.enabled = !self.cellInfo!.disable
+        self.button.enabled = !cellInfo.disable
     }
     
     @IBAction func buttonTapped(sender: AnyObject) {

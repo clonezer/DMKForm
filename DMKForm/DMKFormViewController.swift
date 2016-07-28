@@ -169,42 +169,6 @@ class DMKFormCellInfo {
     }
 }
 
-class DMKFormSection {
-
-    var title: String?
-    var headerText: String?
-    var footerText: String?
-    
-    var numberOfRows: Int = 0
-    
-    private var realCells: [DMKFormCell] = [] {
-        didSet {
-            self.numberOfRows = realCells.count
-        }
-    }
-    private var cells: [DMKFormCell] = []
-    
-    func addCell(cell: DMKFormCell) {
-        cells.append(cell)
-        if cell.cellHidden == false {
-            realCells.append(cell)
-        }
-    }
-    
-    func getCell(indexPath: NSIndexPath) -> DMKFormCell {
-        return realCells[indexPath.row]
-    }
-    
-    func reloadData() {
-        realCells.removeAll()
-        for cell in cells {
-            if cell.cellHidden == false {
-                realCells.append(cell)
-            }
-        }
-    }
-}
-
 class DMKFormViewController: UITableViewController {
 
     var form: DMKForm!
@@ -248,15 +212,8 @@ class DMKFormViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(cellInfo.cellType!, forIndexPath: indexPath) as! DMKFormCell
         
-//        cell.options = cellInfo.options
         cell.cellInfo = cellInfo
-//        cell.title = cellInfo.title
-//        cell.value = cellInfo.value
-//        cell.form = cellInfo.formViewController
-//        cell.cellDisable = cellInfo.disable
-//        cell.height = cellInfo.height
         cell.configCell()
-//        cell.update()
         
         return cell
     }
@@ -283,8 +240,10 @@ class DMKFormViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        if self.form.disable == true {
+            return false
+        }
         return self.form.getSectionInfo(indexPath.section).getCellInfo(indexPath.row).deletable
-
     }
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {

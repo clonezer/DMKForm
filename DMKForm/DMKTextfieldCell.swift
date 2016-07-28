@@ -22,18 +22,20 @@ class DMKTextfieldCell: DMKFormCell {
     }
     
     override func update() {
+        guard let cellInfo = self.cellInfo else { return }
+        
         self.titleLabel.font = self.form?.titleFont
         self.titleLabel.textColor = self.form?.titleColor
         self.textField.font = self.form?.detailFont
         self.textField.textColor = self.form?.detailColor
         self.contentView.backgroundColor = self.form?.cellColor
         
-        self.titleLabel.text = self.title
-        self.textField.text = self.value as? String
+        self.titleLabel.text = cellInfo.title
+        self.textField.text = cellInfo.value as? String
     }
     
     override func disableCell() {
-        self.textField.enabled = !cellDisable
+        self.textField.enabled = !self.cellInfo!.disable
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -47,10 +49,11 @@ class DMKTextfieldCell: DMKFormCell {
 extension DMKTextfieldCell: UITextFieldDelegate {
 
     func textFieldDidEndEditing(textField: UITextField) {
-        self.value = textField.text
+        self.cellInfo?.value = textField.text
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
+//        self.cellInfo?.value = textField.text
         textField.resignFirstResponder()
         return true
     }

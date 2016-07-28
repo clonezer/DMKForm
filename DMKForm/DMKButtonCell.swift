@@ -8,6 +8,10 @@
 
 import UIKit
 
+class DMKButtonCellInfo: DMKFormCellInfo {
+
+}
+
 class DMKButtonCell: DMKFormCell {
 
     @IBOutlet weak var button: UIButton!
@@ -18,10 +22,10 @@ class DMKButtonCell: DMKFormCell {
     }
 
     override func update() {
-        guard let title = self.title else { return }
+        guard let title = self.title, let form = self.form else { return }
         self.button.setAttributedTitle(NSAttributedString(string: title, attributes: [
-                NSForegroundColorAttributeName: self.form!.tintColor,
-                NSFontAttributeName: self.form!.titleFont
+                NSForegroundColorAttributeName: form.tintColor,
+                NSFontAttributeName: form.titleFont
             ]), forState: .Normal)
     }
     
@@ -31,8 +35,13 @@ class DMKButtonCell: DMKFormCell {
         // Configure the view for the selected state
     }
     
+    override func disableCell() {
+        self.button.enabled = !self.cellInfo!.disable
+    }
+    
     @IBAction func buttonTapped(sender: AnyObject) {
-        if let block = self.actionBlock {
+        guard self.cellInfo?.disable == false else { return }
+        if let block = self.cellInfo?.actionBlock {
             block(cell: self)
         }
     }

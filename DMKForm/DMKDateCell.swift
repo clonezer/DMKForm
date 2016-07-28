@@ -13,12 +13,10 @@ class DMKDateCell: DMKFormCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         datePicker.calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
-        self.actionBlock = { cell in
-            self.extendCell()
-        }
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -28,29 +26,36 @@ class DMKDateCell: DMKFormCell {
     }
     
     override func update() {
-        self.titleLabel.font = self.form?.titleFont
-        self.titleLabel.textColor = self.form?.titleColor
-        self.dateLabel.font = self.form?.detailFont
-        self.dateLabel.textColor = self.form?.detailColor
-        self.contentView.backgroundColor = self.form?.cellColor
         
-        self.titleLabel.text = self.title
+        guard let title = self.title, let value = self.value, let cellInfo = self.cellInfo else { return }
+        
+        self.cellInfo?.actionBlock = { cell in
+            self.extendCell()
+        }
+        
+        self.titleLabel.font = cellInfo.formViewController?.titleFont
+        self.titleLabel.textColor = cellInfo.formViewController?.titleColor
+        self.dateLabel.font = cellInfo.formViewController?.detailFont
+        self.dateLabel.textColor = cellInfo.formViewController?.detailColor
+        self.contentView.backgroundColor = cellInfo.formViewController?.cellColor
+        
+        self.titleLabel.text = title
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "dd MMM yyyy"
-        let dateString = dateFormatter.stringFromDate(self.value as! NSDate)
+        let dateString = dateFormatter.stringFromDate(value as! NSDate)
         self.dateLabel.text = dateString
     }
     
     override func disableCell() {
         self.height = 55
-        self.form?.tableView.reloadData()
     }
     
     @IBAction func datePickerDidChanged(sender: AnyObject) {
         let datePicker = sender as! UIDatePicker
         self.value = datePicker.date
-        if let block = self.onChangBlock {
-            block(oldValue: nil, newValue: self.value, cell: self)
+        self.cellInfo?.value = datePicker.date
+        if let block = self.cellInfo?.onChangBlock {
+            block(oldValue: nil, newValue: self.cellInfo?.value, cell: self)
         }
     }
     
@@ -58,10 +63,12 @@ class DMKDateCell: DMKFormCell {
         if self.cellDisable == false {
             if self.height == 271 {
                 self.height = 55
+                self.cellInfo?.height = 55
             }else {
                 self.height = 271
+                self.cellInfo?.height = 271
             }
-            self.form?.tableView.reloadData()
+            self.cellInfo?.formViewController?.reloadForm()
         }
     }
 }

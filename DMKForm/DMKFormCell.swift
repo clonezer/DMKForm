@@ -10,14 +10,16 @@ import UIKit
 
 class DMKFormCell: UITableViewCell {
 
+    var cellInfo: DMKFormCellInfo?
+    
     var tagName: String?
     
     var value: AnyObject? {
         didSet {
             self.update()
-            if let block = self.onChangBlock {
-                block(oldValue: nil, newValue: self.value, cell: self)
-            }
+//            if let block = self.cellInfo!.onChangBlock {
+//                block(oldValue: nil, newValue: self.value, cell: self)
+//            }
         }
     }
     var title: String? {
@@ -31,7 +33,7 @@ class DMKFormCell: UITableViewCell {
         }
     }
     
-    var options: [AnyObject] = []
+    var options: [AnyObject]? = []
     var height: CGFloat = 55
     
     var cellDisable: Bool = false {

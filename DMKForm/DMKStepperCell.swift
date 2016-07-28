@@ -23,14 +23,17 @@ class DMKStepperCell: DMKFormCell {
     }
 
     override func update() {
-        self.titleLabel.font = self.form?.titleFont
-        self.titleLabel.textColor = self.form?.titleColor
-        self.valueLabel.font = self.form?.detailFont
-        self.valueLabel.textColor = self.form?.detailColor
-        self.contentView.backgroundColor = self.form?.cellColor
         
-        self.titleLabel.text = self.title
-        self.valueLabel.text = "\(self.value as! Int)"
+        guard let title = self.title, let value = self.value, let cellInfo = self.cellInfo else { return }
+        
+        self.titleLabel.font = cellInfo.formViewController?.titleFont
+        self.titleLabel.textColor = cellInfo.formViewController?.titleColor
+        self.valueLabel.font = cellInfo.formViewController?.detailFont
+        self.valueLabel.textColor = cellInfo.formViewController?.detailColor
+        self.contentView.backgroundColor = cellInfo.formViewController?.cellColor
+        
+        self.titleLabel.text = title
+        self.valueLabel.text = "\(value as! Int)"
     }
     
     override func disableCell() {

@@ -16,61 +16,52 @@ class TestFormViewController: DMKFormViewController {
         
         let form = DMKForm()
         
-        let unitKindCell = DMKFormCell.cellWithForm(self, tagName: "UnitKind", type: "DMKSegmentedCell", title: "Unit Kind", value: "Per Bed", options: ["Per Room", "Per Bed"]) as! DMKSegmentedCell
+        let section = DMKFormSectionInfo(tag: "General", title: "General", extendable: false)
         
-        let unitTypeNameCell = DMKFormCell.cellWithForm(self, tagName: "UnitTypeName", type: "DMKTextfieldCell", title: "Unit Type Name", value: "") as! DMKTextfieldCell
-            
-        let unitDetailCell = DMKFormCell.cellWithForm(self, tagName: "UnitDetail", type: "DMKTextViewCell", title: "Unit Type Detail", value: "") as! DMKTextViewCell
-        unitDetailCell.height = 100
+        let segmentedCell = DMKFormCellInfo(tag: "Segmented", title: "Select", type: String(DMKSegmentedCell.self), value: "Type A", options: ["Type A", "Type B"], formVC: self)
+        section.addCellInfo(segmentedCell)
         
-        let guestNumberCell = DMKFormCell.cellWithForm(self, tagName: "GuestNumber", type: "DMKStepperCell", title: "Guest Number", value: 1) as! DMKStepperCell
-        guestNumberCell.maximumValue = 10
-        guestNumberCell.minimumValue = 1
+        let nameCell = DMKFormCellInfo(tag: "Name", title: "Full Name", type: String(DMKTextfieldCell.self), value: "Peerasak Unsakon", options: nil, formVC: self)
+        section.addCellInfo(nameCell)
         
-        let extraNumberCell = DMKFormCell.cellWithForm(self, tagName: "ExtraNumber", type: "DMKStepperCell", title: "Extra Number", value: 0) as! DMKStepperCell
-        extraNumberCell.maximumValue = 5
-        extraNumberCell.minimumValue = 0
+        let cardCell = DMKFormCellInfo(tag: "IDCard", title: "ID Card", type: String(DMKTextfieldCell.self), value: "12345", options: nil, formVC: self)
+        section.addCellInfo(cardCell)
         
-        let basePriceCell = DMKFormCell.cellWithForm(self, tagName: "BasePrice", type: "DMKNumberFieldCell", title: "Base Price", value: 0) as! DMKNumberFieldCell
-        let extraPriceCell = DMKFormCell.cellWithForm(self, tagName: "ExtraPrice", type: "DMKNumberFieldCell", title: "Extra Price", value: 0) as! DMKNumberFieldCell
+        let stepperCell = DMKFormCellInfo(tag: "Stepper", title: "Stepper", type: String(DMKStepperCell.self), value: 0, options: nil, formVC: self)
+        section.addCellInfo(stepperCell)
         
-        extraNumberCell.cellHidden = (unitKindCell.value as! String == "Per Bed")
-        extraPriceCell.cellHidden = (extraNumberCell.value as! Int) <= 0
+        let dateCell = DMKFormCellInfo(tag: "Date", title: "Datetime", type: String(DMKDateCell.self), value: NSDate(), options: nil, formVC: self)
+        section.addCellInfo(dateCell)
         
-        unitKindCell.onChangBlock = { (oldValue, newValue, cell) in
-            extraNumberCell.cellHidden = (unitKindCell.value as! String == "Per Bed")
-        }
-        extraNumberCell.onChangBlock = { (oldValue, newValue, cell) in
-            extraPriceCell.cellHidden = (newValue as! Int) <= 0
-        }
+        form.addSectionInfo(section)
         
-        let section1 = DMKFormSection()
-        section1.headerText = "infomation"
-        section1.addCell(unitTypeNameCell)
-        section1.addCell(unitDetailCell)
-        form.addSection(section1)
+        let section2 = DMKFormSectionInfo(tag: "Unit", title: "Unit", extendable: true)
+        form.addSectionInfo(section2)
+        let section3 = DMKFormSectionInfo(tag: "Button", title: "", extendable: false)
+        let newUnitButtonCell = DMKFormCellInfo(tag: "UnitButton", title: "Add New Unit", type: String(DMKButtonCell.self), value: nil, options: nil, formVC: self)
+        section3.addCellInfo(newUnitButtonCell)
+        form.addSectionInfo(section3)
         
-        let section2 = DMKFormSection()
-        section2.addCell(unitKindCell)
-        form.addSection(section2)
-        
-        let section3 = DMKFormSection()
-        section3.headerText = "capacity"
-        section3.addCell(guestNumberCell)
-        section3.addCell(extraNumberCell)
-        form.addSection(section3)
-        
-        let section4 = DMKFormSection()
-        section4.headerText = "pricing"
-        section4.addCell(basePriceCell)
-        section4.addCell(extraPriceCell)
-        form.addSection(section4)
         
         self.form = form
+        
+        segmentedCell.onChangBlock = { (_, newValue, _) in
+            cardCell.hidden = (newValue as! String == "Type B")
+            self.reloadForm()
+        }
+        
+        newUnitButtonCell.actionBlock = { _ in
+            guard newUnitButtonCell.disable == false else { return }
+            let unitCell = DMKFormCellInfo(tag: "", title: "Unit No.", type: String(DMKTextfieldCell.self), value: "", options: nil, formVC: self)
+            unitCell.deletable = true
+            section2.addCellInfo(unitCell)
+            self.reloadForm()
+        }
     }
     
     @IBAction func valueButtonTapped(sender: AnyObject) {
-        debugPrint("values: \(self.form.getValues())")
+        debugPrint("==== values ====")
+        debugPrint(self.form.getValues())
     }
     
     @IBAction func disableButtonTapped(sender: AnyObject) {

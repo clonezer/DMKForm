@@ -8,6 +8,15 @@
 
 import UIKit
 
+class DMKNumberFieldCellInfo: DMKFormCellInfo {
+    
+    var placeholder: String?
+    
+    override init(tag: String, title: String, type: String, value: AnyObject?, options: [AnyObject]?, formVC: DMKFormViewController) {
+        super.init(tag: tag, title: title, type: type, value: value, options: options, formVC: formVC)
+    }
+}
+
 class DMKNumberFieldCell: DMKFormCell {
 
     @IBOutlet weak var titleLabel: UILabel!
@@ -30,13 +39,14 @@ class DMKNumberFieldCell: DMKFormCell {
     }
     
     override func update() {
-        guard let cellInfo = self.cellInfo else { return }
+        guard let cellInfo = self.cellInfo as? DMKNumberFieldCellInfo else { return }
         
         cellInfo.actionBlock = { cell in
             self.textField.becomeFirstResponder()
         }
         
         self.titleLabel.text = cellInfo.title
+        self.textField.placeholder = cellInfo.placeholder
         guard let value = cellInfo.value else {
             cellInfo.value = 0
             return

@@ -8,6 +8,16 @@
 
 import UIKit
 
+class DMKDateCellInfo: DMKFormCellInfo {
+
+    var minimumDate: NSDate?
+    var maximumDate: NSDate?
+    
+    override init(tag: String, title: String, type: String, value: AnyObject?, options: [AnyObject]?, formVC: DMKFormViewController) {
+        super.init(tag: tag, title: title, type: type, value: value, options: options, formVC: formVC)
+    }
+}
+
 class DMKDateCell: DMKFormCell {
 
     @IBOutlet weak var titleLabel: UILabel!
@@ -42,8 +52,11 @@ class DMKDateCell: DMKFormCell {
     }
     
     override func update() {
-        guard let cellInfo = self.cellInfo else { return }
+        guard let cellInfo = self.cellInfo as? DMKDateCellInfo else { return }
         self.titleLabel.text = cellInfo.title
+        self.datePicker.minimumDate = cellInfo.minimumDate
+        self.datePicker.maximumDate = cellInfo.maximumDate
+        
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "dd MMM yyyy"
         let dateString = dateFormatter.stringFromDate(cellInfo.value as! NSDate)

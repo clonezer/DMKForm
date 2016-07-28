@@ -8,6 +8,12 @@
 
 import UIKit
 
+class DMKTextViewCellInfo: DMKFormCellInfo {
+    override init(tag: String, title: String, type: String, value: AnyObject?, options: [AnyObject]?, formVC: DMKFormViewController) {
+        super.init(tag: tag, title: title, type: type, value: value, options: options, formVC: formVC)
+    }
+}
+
 class DMKTextViewCell: DMKFormCell, UITextViewDelegate {
 
     @IBOutlet weak var titleLabel: UILabel!

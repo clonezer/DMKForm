@@ -167,6 +167,10 @@ class DMKFormCellInfo {
     func update() {
     
     }
+    
+    static func create(tag: String, title: String, type: String, value: AnyObject?, options: [AnyObject]?, formVC: DMKFormViewController) -> AnyObject {
+        return DMKFormCellInfo(tag: tag, title: title, type: type, value: value, options: options, formVC: formVC)
+    }
 }
 
 class DMKFormViewController: UITableViewController {
@@ -182,7 +186,17 @@ class DMKFormViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.registerNibName(["DMKNameCell", "DMKTextfieldCell", "DMKDateCell", "DMKTextViewCell", "DMKSegmentedCell", "DMKStepperCell", "DMKNumberFieldCell", "DMKButtonCell"])
+        
+        self.registerNibName([
+            "DMKNameCell",
+            "DMKTextfieldCell",
+            "DMKDateCell",
+            "DMKTextViewCell",
+            "DMKSegmentedCell",
+            "DMKStepperCell",
+            "DMKNumberFieldCell",
+            "DMKButtonCell"
+            ])
     }
     
     func registerNibName(nibNames: [String]) {

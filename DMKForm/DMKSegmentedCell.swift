@@ -8,6 +8,12 @@
 
 import UIKit
 
+class DMKSegmentedCellInfo: DMKFormCellInfo {
+    override init(tag: String, title: String, type: String, value: AnyObject?, options: [AnyObject]?, formVC: DMKFormViewController) {
+        super.init(tag: tag, title: title, type: type, value: value, options: options, formVC: formVC)
+    }
+}
+
 class DMKSegmentedCell: DMKFormCell {
 
     @IBOutlet weak var titleLabel: UILabel!

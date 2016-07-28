@@ -8,6 +8,15 @@
 
 import UIKit
 
+class DMKTextfieldCellInfo: DMKFormCellInfo {
+    
+    var placeholder: String?
+    
+    override init(tag: String, title: String, type: String, value: AnyObject?, options: [AnyObject]?, formVC: DMKFormViewController) {
+        super.init(tag: tag, title: title, type: type, value: value, options: options, formVC: formVC)
+    }
+}
+
 class DMKTextfieldCell: DMKFormCell {
 
     @IBOutlet weak var titleLabel: UILabel!
@@ -19,13 +28,7 @@ class DMKTextfieldCell: DMKFormCell {
     }
     
     override func configCell() {
-        guard
-            let cellInfo = self.cellInfo,
-            let formVC = self.cellInfo?.formViewController else { return }
-        
-        cellInfo.actionBlock = { cell in
-            self.textField.becomeFirstResponder()
-        }
+        guard let formVC = self.cellInfo?.formViewController else { return }
         
         self.titleLabel.font = formVC.titleFont
         self.titleLabel.textColor = formVC.titleColor
@@ -37,7 +40,14 @@ class DMKTextfieldCell: DMKFormCell {
     }
     
     override func update() {
-        guard let cellInfo = self.cellInfo else { return }
+        guard let cellInfo = self.cellInfo as? DMKTextfieldCellInfo else { return }
+        
+        cellInfo.actionBlock = { cell in
+            self.textField.becomeFirstResponder()
+        }
+        
+        self.titleLabel.text = cellInfo.title
+        self.textField.placeholder = cellInfo.placeholder
         self.titleLabel.text = cellInfo.title
         self.textField.text = cellInfo.value as? String
         self.textField.enabled = !cellInfo.disable

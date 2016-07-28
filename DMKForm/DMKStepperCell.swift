@@ -8,15 +8,21 @@
 
 import UIKit
 
+class DMKStepperCellInfo: DMKFormCellInfo {
+    var minimumValue = 0
+    var maximumValue = 999
+    
+    override init(tag: String, title: String, type: String, value: AnyObject?, options: [AnyObject]?, formVC: DMKFormViewController) {
+        super.init(tag: tag, title: title, type: type, value: value, options: options, formVC: formVC)
+    }
+}
+
 class DMKStepperCell: DMKFormCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
     @IBOutlet weak var plusButton: UIButton!
     @IBOutlet weak var minusButton: UIButton!
-    
-    var minimumValue = 0
-    var maximumValue = 999
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,12 +36,15 @@ class DMKStepperCell: DMKFormCell {
         self.valueLabel.font = formVC.detailFont
         self.valueLabel.textColor = formVC.detailColor
         self.contentView.backgroundColor = formVC.cellColor
-        
         self.update()
     }
     
     override func update() {
-        guard let cellInfo = self.cellInfo else { return }
+        guard let cellInfo = self.cellInfo as? DMKStepperCellInfo else { return }
+        
+        cellInfo.value = ((cellInfo.value as! Int) < cellInfo.minimumValue ? cellInfo.minimumValue : cellInfo.value)
+        cellInfo.value = ((cellInfo.value as! Int) > cellInfo.maximumValue ? cellInfo.maximumValue : cellInfo.value)
+        
         self.titleLabel.text = cellInfo.title
         self.valueLabel.text = "\(cellInfo.value as! Int)"
         self.plusButton.enabled = !cellInfo.disable
@@ -49,10 +58,11 @@ class DMKStepperCell: DMKFormCell {
     }
     
     @IBAction func plusButtonTapped(sender: AnyObject) {
-        guard let cellInfo = self.cellInfo else { return }
+        guard let cellInfo = self.cellInfo  else { return }
         
         var value = cellInfo.value as! Int
-        if value < self.maximumValue {
+        let max = (cellInfo as! DMKStepperCellInfo).maximumValue
+        if value < max {
             value = value + 1
         }
         cellInfo.value = value
@@ -63,7 +73,8 @@ class DMKStepperCell: DMKFormCell {
         guard let cellInfo = self.cellInfo else { return }
         
         var value = cellInfo.value as! Int
-        if value > self.minimumValue {
+        let min = (cellInfo as! DMKStepperCellInfo).minimumValue
+        if value > min {
             value = value - 1
         }
         cellInfo.value = value

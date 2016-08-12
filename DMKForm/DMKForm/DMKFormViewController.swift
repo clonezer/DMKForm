@@ -7,11 +7,11 @@
 //
 
 import UIKit
+import Validator
 
 typealias DMKActionBlock = (cellInfo: DMKFormCellInfo) -> Void
-typealias DMKOnChangeBlock = (value: AnyObject) -> Void
-typealias DMKValidateBlock = (cellInfo: DMKFormCellInfo) -> Bool
-
+typealias DMKOnChangeBlock = (value: AnyObject, cellInfo: DMKFormCellInfo) -> Void
+typealias DMKOnDeleteBlock = (cellInfo: DMKFormCellInfo) -> Void
 class DMKForm {
     
     var title: String?
@@ -37,9 +37,23 @@ class DMKForm {
         _sectionInfos.append(sectionInfo)
     }
     
+    func addSectionInfo(sectionInfo: DMKFormSectionInfo, index: Int) {
+        sectionInfos.insert(sectionInfo, atIndex: index)
+        _sectionInfos.insert(sectionInfo, atIndex: index)
+    }
+    
     func deleteInfo(section: Int, cellInfo: DMKFormCellInfo) {
         let sectionInfo = self.getSectionInfo(section)
         sectionInfo.deleteCellInfo(cellInfo)
+    }
+    
+    func deleteSectionInfo(sectionInfo: DMKFormSectionInfo) {
+        guard
+            let _index = _sectionInfos.indexOf({ $0.tag == sectionInfo.tag }),
+            let index = sectionInfos.indexOf({ $0.tag == sectionInfo.tag })else { return }
+        
+        _sectionInfos.removeAtIndex(_index)
+        sectionInfos.removeAtIndex(index)
     }
     
     func reloadData() {
@@ -50,8 +64,19 @@ class DMKForm {
         }
     }
     
+    func getAllSectionInfos() -> [DMKFormSectionInfo] {
+        return _sectionInfos
+    }
+    
     func getSectionInfo(section: Int) -> DMKFormSectionInfo {
         return _sectionInfos[section]
+    }
+    
+    func getSectionInfo(tag: String) -> DMKFormSectionInfo? {
+        guard
+            let index = _sectionInfos.indexOf({ $0.tag == tag })
+            else { return nil}
+        return self.getSectionInfo(index)
     }
     
     func getValues() -> [String: AnyObject]? {
@@ -74,7 +99,28 @@ class DMKForm {
         return valueDict
     }
     
-    func disableAllCell() {
+    func hasChangedState() -> Bool {
+        for section in self.getAllSectionInfos() {
+            for cell in section.getAllCell()! {
+                if cell.valueChanged == true {
+                    return true
+                }
+            }
+        }
+        return false
+    }
+    
+    func clearAllChangedState() {
+        for section in sectionInfos {
+            section.clearAllChangedCell()
+        }
+        
+        for section in _sectionInfos {
+            section.clearAllChangedCell()
+        }
+    }
+    
+    private func disableAllCell() {
         for section in _sectionInfos {
             for cell in section._cellInfos {
                 cell.disable = self.disable
@@ -83,24 +129,27 @@ class DMKForm {
     }
     
     func isValidate() -> Bool {
+        var isValid = true
         for section in _sectionInfos {
             for cell in section._cellInfos {
-                
-                if cell.required == true && cell.value == nil {
-                    return false
-                }
-                
-                if let block = cell.validatorBlock {
-                    if block(cellInfo: cell) == false {
+                if cell.validationRuleSet != nil {
+                    let value = (cell.value == nil ? "" : "\(cell.value!)")
+                    let result = Validator.validate(input: value, rules: cell.validationRuleSet!)
+                    switch result {
+                    case .Invalid(let failures):
                         cell.validate = false
-                        return false
-                    }else {
+                        cell.validationErrors = failures.map { $0.message }
+                        isValid = false
+                    case .Valid:
                         cell.validate = true
+                        cell.validationErrors?.removeAll()
                     }
+                }else {
+                    cell.validate = true
                 }
             }
         }
-        return true
+        return isValid
     }
 }
 
@@ -126,11 +175,25 @@ class DMKFormSectionInfo {
         self.extendable = extendable
     }
     
+    func getAllCell() -> [DMKFormCellInfo]? {
+        return _cellInfos
+    }
+    
     func addCellInfo(cellInfo: DMKFormCellInfo) {
         cellInfos.append(cellInfo)
         if cellInfo.hidden == false {
             _cellInfos.append(cellInfo)
         }
+    }
+    
+    func deleteAllCellInfo() {
+        cellInfos.removeAll()
+        _cellInfos.removeAll()
+    }
+    
+    func deleteLastCellInfo() {
+        cellInfos.removeLast()
+        _cellInfos.removeLast()
     }
     
     func deleteCellInfo(cellInfo: DMKFormCellInfo) {
@@ -154,25 +217,65 @@ class DMKFormSectionInfo {
     func getCellInfo(row: Int) -> DMKFormCellInfo {
         return _cellInfos[row]
     }
+    
+    func getCellInfo(tag: String) -> DMKFormCellInfo? {
+        guard
+            let index = cellInfos.indexOf({ $0.tag == tag })
+            else { return nil}
+        return cellInfos[index]
+    }
+    
+    func clearAllChangedCell() {
+        for cell in cellInfos {
+            cell.valueChanged = false
+        }
+        
+        for cell in _cellInfos {
+            cell.valueChanged = false
+        }
+    }
 }
 
 class DMKFormCellInfo {
     var tag: String?
     var title: String?
     var cellType: String?
-    var value: AnyObject?
+    var value: AnyObject? {
+        didSet {
+            if let nv = self.value as? String, ov = oldValue as? String {
+                if nv != ov {self.valueChanged = true}
+            }
+            else if let nv = self.value as? Double, ov = oldValue as? Double {
+                if nv != ov {self.valueChanged = true}
+            }
+            else if let nv = self.value as? Float, ov = oldValue as? Float {
+                if nv != ov {self.valueChanged = true}
+            }
+            else if let nv = self.value as? Int, ov = oldValue as? Int {
+                if nv != ov {self.valueChanged = true}
+            }
+            else if let nv = self.value as? Bool, ov = oldValue as? Bool {
+                if nv != ov {self.valueChanged = true}
+            }
+        }
+    }
+    
     var options: [AnyObject]? = []
     var height: CGFloat = 55
-    var required: Bool = false
     var hidden: Bool = false
     var disable: Bool = false
     var deletable: Bool = false
+    var valueChanged: Bool = false
     var validate: Bool = true
+    var validationRuleSet: ValidationRuleSet<String>? = ValidationRuleSet<String>()
+    var validationErrors: [String]?
+    var otherData: AnyObject?
     
     var formViewController: DMKFormViewController?
     var actionBlock: DMKActionBlock?
-    var onChangBlock: DMKOnChangeBlock?
-    var validatorBlock: DMKValidateBlock?
+    var onChangeBlock: DMKOnChangeBlock?
+    var onDeleteBlock: DMKOnDeleteBlock?
+
     
     init(tag: String, title: String, type: String, value: AnyObject?, options: [AnyObject]?, formVC: DMKFormViewController) {
         self.tag = tag
@@ -200,6 +303,8 @@ class DMKFormViewController: UITableViewController {
 
     var form: DMKForm!
     
+    var headerFont: UIFont = UIFont.boldSystemFontOfSize(20)
+    var headerColor: UIColor = UIColor.darkGrayColor()
     var titleFont: UIFont = UIFont.boldSystemFontOfSize(15)
     var detailFont: UIFont = UIFont.systemFontOfSize(15)
     var tintColor: UIColor = UIColor(red: 215/255, green: 35/255, blue: 35/255, alpha: 1.0)
@@ -265,7 +370,8 @@ class DMKFormViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return self.form.getSectionInfo(indexPath.section).getCellInfo(indexPath.row).height
+        let cellInfo = self.form.getSectionInfo(indexPath.section).getCellInfo(indexPath.row)
+        return cellInfo.height
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -286,12 +392,17 @@ class DMKFormViewController: UITableViewController {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if (editingStyle == .Delete) {
             let cellInfo = self.form.getSectionInfo(indexPath.section).getCellInfo(indexPath.row)
-            self.form.deleteInfo(indexPath.section, cellInfo: cellInfo)
-            self.reloadForm()
+            if let block = cellInfo.onDeleteBlock {
+                block(cellInfo: cellInfo)
+            }
+            //If you want to delete cellInfo
+            //self.form.deleteInfo(indexPath.section, cellInfo: cellInfo)
+            //self.reloadForm()
         }
     }
     
     func reloadForm() {
+        self.form.clearAllChangedState()
         self.form.reloadData()
         self.tableView.reloadData()
     }

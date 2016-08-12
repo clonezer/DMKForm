@@ -9,30 +9,30 @@
 /* Begin PBXBuildFile section */
 		4FF2B090DC127A25B28BAFD7 /* Pods_DMKFormTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21251AC1FF5A0EE5F118E018 /* Pods_DMKFormTests.framework */; };
 		5B6683C3125B12AFA5DF672D /* Pods_DMKForm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 993832D7B7ACDE2DB6F043C0 /* Pods_DMKForm.framework */; };
-		635910FD1D473F980071D59A /* DMKStepperCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635910FB1D473F980071D59A /* DMKStepperCell.swift */; };
-		635910FE1D473F980071D59A /* DMKStepperCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 635910FC1D473F980071D59A /* DMKStepperCell.xib */; };
-		635911031D47559F0071D59A /* DMKNumberFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635911011D47559F0071D59A /* DMKNumberFieldCell.swift */; };
-		635911041D47559F0071D59A /* DMKNumberFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 635911021D47559F0071D59A /* DMKNumberFieldCell.xib */; };
-		635911071D475B620071D59A /* DMKButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635911051D475B620071D59A /* DMKButtonCell.swift */; };
-		635911081D475B620071D59A /* DMKButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 635911061D475B620071D59A /* DMKButtonCell.xib */; };
 		638244241D447A27000E542A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638244231D447A27000E542A /* AppDelegate.swift */; };
 		638244291D447A27000E542A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 638244271D447A27000E542A /* Main.storyboard */; };
 		6382442B1D447A27000E542A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6382442A1D447A27000E542A /* Assets.xcassets */; };
 		6382442E1D447A27000E542A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6382442C1D447A27000E542A /* LaunchScreen.storyboard */; };
 		638244391D447A27000E542A /* DMKFormTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638244381D447A27000E542A /* DMKFormTests.swift */; };
-		638244441D447AB2000E542A /* DMKFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638244431D447AB2000E542A /* DMKFormViewController.swift */; };
-		638244461D4480B1000E542A /* DMKFormCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638244451D4480B1000E542A /* DMKFormCell.swift */; };
-		638244491D448666000E542A /* DMKNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638244471D448666000E542A /* DMKNameCell.swift */; };
-		6382444A1D448666000E542A /* DMKNameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638244481D448666000E542A /* DMKNameCell.xib */; };
-		6395ACE91D44D6BC00F83D3F /* DMKTextfieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6395ACE71D44D6BC00F83D3F /* DMKTextfieldCell.swift */; };
-		6395ACEA1D44D6BC00F83D3F /* DMKTextfieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6395ACE81D44D6BC00F83D3F /* DMKTextfieldCell.xib */; };
-		6395ACEC1D44E0CC00F83D3F /* TestFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6395ACEB1D44E0CC00F83D3F /* TestFormViewController.swift */; };
-		6395ACEF1D44E39000F83D3F /* DMKDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6395ACED1D44E39000F83D3F /* DMKDateCell.swift */; };
-		6395ACF01D44E39000F83D3F /* DMKDateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6395ACEE1D44E39000F83D3F /* DMKDateCell.xib */; };
-		6395AD201D46363D00F83D3F /* DMKTextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6395AD1E1D46363D00F83D3F /* DMKTextViewCell.swift */; };
-		6395AD211D46363D00F83D3F /* DMKTextViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6395AD1F1D46363D00F83D3F /* DMKTextViewCell.xib */; };
-		6395AD251D4683E900F83D3F /* DMKSegmentedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6395AD231D4683E800F83D3F /* DMKSegmentedCell.swift */; };
-		6395AD261D4683E900F83D3F /* DMKSegmentedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6395AD241D4683E800F83D3F /* DMKSegmentedCell.xib */; };
+		6395ACEC1D44E0CC00F83D3F /* ExampleFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6395ACEB1D44E0CC00F83D3F /* ExampleFormViewController.swift */; };
+		63DD5DDC1D4A06770006A47E /* DMKButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DD5DCA1D4A06770006A47E /* DMKButtonCell.swift */; };
+		63DD5DDD1D4A06770006A47E /* DMKButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63DD5DCB1D4A06770006A47E /* DMKButtonCell.xib */; };
+		63DD5DDE1D4A06770006A47E /* DMKDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DD5DCC1D4A06770006A47E /* DMKDateCell.swift */; };
+		63DD5DDF1D4A06770006A47E /* DMKDateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63DD5DCD1D4A06770006A47E /* DMKDateCell.xib */; };
+		63DD5DE01D4A06770006A47E /* DMKFormCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DD5DCE1D4A06770006A47E /* DMKFormCell.swift */; };
+		63DD5DE11D4A06770006A47E /* DMKFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DD5DCF1D4A06770006A47E /* DMKFormViewController.swift */; };
+		63DD5DE21D4A06770006A47E /* DMKNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DD5DD01D4A06770006A47E /* DMKNameCell.swift */; };
+		63DD5DE31D4A06770006A47E /* DMKNameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63DD5DD11D4A06770006A47E /* DMKNameCell.xib */; };
+		63DD5DE41D4A06770006A47E /* DMKNumberFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DD5DD21D4A06770006A47E /* DMKNumberFieldCell.swift */; };
+		63DD5DE51D4A06770006A47E /* DMKNumberFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63DD5DD31D4A06770006A47E /* DMKNumberFieldCell.xib */; };
+		63DD5DE61D4A06770006A47E /* DMKSegmentedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DD5DD41D4A06770006A47E /* DMKSegmentedCell.swift */; };
+		63DD5DE71D4A06770006A47E /* DMKSegmentedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63DD5DD51D4A06770006A47E /* DMKSegmentedCell.xib */; };
+		63DD5DE81D4A06770006A47E /* DMKStepperCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DD5DD61D4A06770006A47E /* DMKStepperCell.swift */; };
+		63DD5DE91D4A06770006A47E /* DMKStepperCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63DD5DD71D4A06770006A47E /* DMKStepperCell.xib */; };
+		63DD5DEA1D4A06770006A47E /* DMKTextfieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DD5DD81D4A06770006A47E /* DMKTextfieldCell.swift */; };
+		63DD5DEB1D4A06770006A47E /* DMKTextfieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63DD5DD91D4A06770006A47E /* DMKTextfieldCell.xib */; };
+		63DD5DEC1D4A06770006A47E /* DMKTextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DD5DDA1D4A06770006A47E /* DMKTextViewCell.swift */; };
+		63DD5DED1D4A06770006A47E /* DMKTextViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63DD5DDB1D4A06770006A47E /* DMKTextViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,12 +48,6 @@
 /* Begin PBXFileReference section */
 		21251AC1FF5A0EE5F118E018 /* Pods_DMKFormTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DMKFormTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B3B6A47E8D9DADF9EA8ECC4 /* Pods-DMKFormTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DMKFormTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DMKFormTests/Pods-DMKFormTests.debug.xcconfig"; sourceTree = "<group>"; };
-		635910FB1D473F980071D59A /* DMKStepperCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMKStepperCell.swift; sourceTree = "<group>"; };
-		635910FC1D473F980071D59A /* DMKStepperCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMKStepperCell.xib; sourceTree = "<group>"; };
-		635911011D47559F0071D59A /* DMKNumberFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMKNumberFieldCell.swift; sourceTree = "<group>"; };
-		635911021D47559F0071D59A /* DMKNumberFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMKNumberFieldCell.xib; sourceTree = "<group>"; };
-		635911051D475B620071D59A /* DMKButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMKButtonCell.swift; sourceTree = "<group>"; };
-		635911061D475B620071D59A /* DMKButtonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMKButtonCell.xib; sourceTree = "<group>"; };
 		638244201D447A27000E542A /* DMKForm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DMKForm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		638244231D447A27000E542A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		638244281D447A27000E542A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -63,19 +57,25 @@
 		638244341D447A27000E542A /* DMKFormTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DMKFormTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		638244381D447A27000E542A /* DMKFormTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMKFormTests.swift; sourceTree = "<group>"; };
 		6382443A1D447A27000E542A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		638244431D447AB2000E542A /* DMKFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMKFormViewController.swift; sourceTree = "<group>"; };
-		638244451D4480B1000E542A /* DMKFormCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMKFormCell.swift; sourceTree = "<group>"; };
-		638244471D448666000E542A /* DMKNameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMKNameCell.swift; sourceTree = "<group>"; };
-		638244481D448666000E542A /* DMKNameCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMKNameCell.xib; sourceTree = "<group>"; };
-		6395ACE71D44D6BC00F83D3F /* DMKTextfieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMKTextfieldCell.swift; sourceTree = "<group>"; };
-		6395ACE81D44D6BC00F83D3F /* DMKTextfieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMKTextfieldCell.xib; sourceTree = "<group>"; };
-		6395ACEB1D44E0CC00F83D3F /* TestFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestFormViewController.swift; sourceTree = "<group>"; };
-		6395ACED1D44E39000F83D3F /* DMKDateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMKDateCell.swift; sourceTree = "<group>"; };
-		6395ACEE1D44E39000F83D3F /* DMKDateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMKDateCell.xib; sourceTree = "<group>"; };
-		6395AD1E1D46363D00F83D3F /* DMKTextViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMKTextViewCell.swift; sourceTree = "<group>"; };
-		6395AD1F1D46363D00F83D3F /* DMKTextViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMKTextViewCell.xib; sourceTree = "<group>"; };
-		6395AD231D4683E800F83D3F /* DMKSegmentedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMKSegmentedCell.swift; sourceTree = "<group>"; };
-		6395AD241D4683E800F83D3F /* DMKSegmentedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMKSegmentedCell.xib; sourceTree = "<group>"; };
+		6395ACEB1D44E0CC00F83D3F /* ExampleFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleFormViewController.swift; sourceTree = "<group>"; };
+		63DD5DCA1D4A06770006A47E /* DMKButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMKButtonCell.swift; sourceTree = "<group>"; };
+		63DD5DCB1D4A06770006A47E /* DMKButtonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMKButtonCell.xib; sourceTree = "<group>"; };
+		63DD5DCC1D4A06770006A47E /* DMKDateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMKDateCell.swift; sourceTree = "<group>"; };
+		63DD5DCD1D4A06770006A47E /* DMKDateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMKDateCell.xib; sourceTree = "<group>"; };
+		63DD5DCE1D4A06770006A47E /* DMKFormCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMKFormCell.swift; sourceTree = "<group>"; };
+		63DD5DCF1D4A06770006A47E /* DMKFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMKFormViewController.swift; sourceTree = "<group>"; };
+		63DD5DD01D4A06770006A47E /* DMKNameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMKNameCell.swift; sourceTree = "<group>"; };
+		63DD5DD11D4A06770006A47E /* DMKNameCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMKNameCell.xib; sourceTree = "<group>"; };
+		63DD5DD21D4A06770006A47E /* DMKNumberFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMKNumberFieldCell.swift; sourceTree = "<group>"; };
+		63DD5DD31D4A06770006A47E /* DMKNumberFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMKNumberFieldCell.xib; sourceTree = "<group>"; };
+		63DD5DD41D4A06770006A47E /* DMKSegmentedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMKSegmentedCell.swift; sourceTree = "<group>"; };
+		63DD5DD51D4A06770006A47E /* DMKSegmentedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMKSegmentedCell.xib; sourceTree = "<group>"; };
+		63DD5DD61D4A06770006A47E /* DMKStepperCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMKStepperCell.swift; sourceTree = "<group>"; };
+		63DD5DD71D4A06770006A47E /* DMKStepperCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMKStepperCell.xib; sourceTree = "<group>"; };
+		63DD5DD81D4A06770006A47E /* DMKTextfieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMKTextfieldCell.swift; sourceTree = "<group>"; };
+		63DD5DD91D4A06770006A47E /* DMKTextfieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMKTextfieldCell.xib; sourceTree = "<group>"; };
+		63DD5DDA1D4A06770006A47E /* DMKTextViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMKTextViewCell.swift; sourceTree = "<group>"; };
+		63DD5DDB1D4A06770006A47E /* DMKTextViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMKTextViewCell.xib; sourceTree = "<group>"; };
 		993832D7B7ACDE2DB6F043C0 /* Pods_DMKForm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DMKForm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4638A02B43D077D64C43903 /* Pods-DMKForm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DMKForm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DMKForm/Pods-DMKForm.debug.xcconfig"; sourceTree = "<group>"; };
 		A763A3CF4FA83D0EA24C99F7 /* Pods-DMKForm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DMKForm.release.xcconfig"; path = "Pods/Target Support Files/Pods-DMKForm/Pods-DMKForm.release.xcconfig"; sourceTree = "<group>"; };
@@ -137,8 +137,8 @@
 			isa = PBXGroup;
 			children = (
 				638244231D447A27000E542A /* AppDelegate.swift */,
-				6395ACEB1D44E0CC00F83D3F /* TestFormViewController.swift */,
-				6395ACF11D44EC4D00F83D3F /* DMKForm */,
+				6395ACEB1D44E0CC00F83D3F /* ExampleFormViewController.swift */,
+				63DD5DC91D4A06770006A47E /* DMKForm */,
 				638244271D447A27000E542A /* Main.storyboard */,
 				6382442A1D447A27000E542A /* Assets.xcassets */,
 				6382442C1D447A27000E542A /* LaunchScreen.storyboard */,
@@ -156,37 +156,29 @@
 			path = DMKFormTests;
 			sourceTree = "<group>";
 		};
-		6395ACF11D44EC4D00F83D3F /* DMKForm */ = {
+		63DD5DC91D4A06770006A47E /* DMKForm */ = {
 			isa = PBXGroup;
 			children = (
-				638244431D447AB2000E542A /* DMKFormViewController.swift */,
-				6395AD221D4683BD00F83D3F /* Cells */,
+				63DD5DCA1D4A06770006A47E /* DMKButtonCell.swift */,
+				63DD5DCB1D4A06770006A47E /* DMKButtonCell.xib */,
+				63DD5DCC1D4A06770006A47E /* DMKDateCell.swift */,
+				63DD5DCD1D4A06770006A47E /* DMKDateCell.xib */,
+				63DD5DCE1D4A06770006A47E /* DMKFormCell.swift */,
+				63DD5DCF1D4A06770006A47E /* DMKFormViewController.swift */,
+				63DD5DD01D4A06770006A47E /* DMKNameCell.swift */,
+				63DD5DD11D4A06770006A47E /* DMKNameCell.xib */,
+				63DD5DD21D4A06770006A47E /* DMKNumberFieldCell.swift */,
+				63DD5DD31D4A06770006A47E /* DMKNumberFieldCell.xib */,
+				63DD5DD41D4A06770006A47E /* DMKSegmentedCell.swift */,
+				63DD5DD51D4A06770006A47E /* DMKSegmentedCell.xib */,
+				63DD5DD61D4A06770006A47E /* DMKStepperCell.swift */,
+				63DD5DD71D4A06770006A47E /* DMKStepperCell.xib */,
+				63DD5DD81D4A06770006A47E /* DMKTextfieldCell.swift */,
+				63DD5DD91D4A06770006A47E /* DMKTextfieldCell.xib */,
+				63DD5DDA1D4A06770006A47E /* DMKTextViewCell.swift */,
+				63DD5DDB1D4A06770006A47E /* DMKTextViewCell.xib */,
 			);
-			name = DMKForm;
-			sourceTree = "<group>";
-		};
-		6395AD221D4683BD00F83D3F /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				638244451D4480B1000E542A /* DMKFormCell.swift */,
-				635911051D475B620071D59A /* DMKButtonCell.swift */,
-				635911061D475B620071D59A /* DMKButtonCell.xib */,
-				635910FB1D473F980071D59A /* DMKStepperCell.swift */,
-				635910FC1D473F980071D59A /* DMKStepperCell.xib */,
-				6395AD231D4683E800F83D3F /* DMKSegmentedCell.swift */,
-				6395AD241D4683E800F83D3F /* DMKSegmentedCell.xib */,
-				6395AD1E1D46363D00F83D3F /* DMKTextViewCell.swift */,
-				6395AD1F1D46363D00F83D3F /* DMKTextViewCell.xib */,
-				6395ACED1D44E39000F83D3F /* DMKDateCell.swift */,
-				6395ACEE1D44E39000F83D3F /* DMKDateCell.xib */,
-				635911011D47559F0071D59A /* DMKNumberFieldCell.swift */,
-				635911021D47559F0071D59A /* DMKNumberFieldCell.xib */,
-				6395ACE71D44D6BC00F83D3F /* DMKTextfieldCell.swift */,
-				6395ACE81D44D6BC00F83D3F /* DMKTextfieldCell.xib */,
-				638244471D448666000E542A /* DMKNameCell.swift */,
-				638244481D448666000E542A /* DMKNameCell.xib */,
-			);
-			name = Cells;
+			path = DMKForm;
 			sourceTree = "<group>";
 		};
 		846FCBE5C6BC0A2EB8E6745C /* Frameworks */ = {
@@ -286,17 +278,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				635911041D47559F0071D59A /* DMKNumberFieldCell.xib in Resources */,
+				63DD5DED1D4A06770006A47E /* DMKTextViewCell.xib in Resources */,
 				6382442E1D447A27000E542A /* LaunchScreen.storyboard in Resources */,
-				6382444A1D448666000E542A /* DMKNameCell.xib in Resources */,
-				6395ACF01D44E39000F83D3F /* DMKDateCell.xib in Resources */,
-				6395ACEA1D44D6BC00F83D3F /* DMKTextfieldCell.xib in Resources */,
+				63DD5DE51D4A06770006A47E /* DMKNumberFieldCell.xib in Resources */,
+				63DD5DEB1D4A06770006A47E /* DMKTextfieldCell.xib in Resources */,
 				6382442B1D447A27000E542A /* Assets.xcassets in Resources */,
-				6395AD261D4683E900F83D3F /* DMKSegmentedCell.xib in Resources */,
-				635910FE1D473F980071D59A /* DMKStepperCell.xib in Resources */,
-				635911081D475B620071D59A /* DMKButtonCell.xib in Resources */,
+				63DD5DDF1D4A06770006A47E /* DMKDateCell.xib in Resources */,
+				63DD5DDD1D4A06770006A47E /* DMKButtonCell.xib in Resources */,
+				63DD5DE71D4A06770006A47E /* DMKSegmentedCell.xib in Resources */,
+				63DD5DE91D4A06770006A47E /* DMKStepperCell.xib in Resources */,
 				638244291D447A27000E542A /* Main.storyboard in Resources */,
-				6395AD211D46363D00F83D3F /* DMKTextViewCell.xib in Resources */,
+				63DD5DE31D4A06770006A47E /* DMKNameCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,18 +399,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6395ACE91D44D6BC00F83D3F /* DMKTextfieldCell.swift in Sources */,
-				638244461D4480B1000E542A /* DMKFormCell.swift in Sources */,
-				635911071D475B620071D59A /* DMKButtonCell.swift in Sources */,
-				638244441D447AB2000E542A /* DMKFormViewController.swift in Sources */,
-				6395ACEC1D44E0CC00F83D3F /* TestFormViewController.swift in Sources */,
-				635910FD1D473F980071D59A /* DMKStepperCell.swift in Sources */,
-				6395AD201D46363D00F83D3F /* DMKTextViewCell.swift in Sources */,
-				6395AD251D4683E900F83D3F /* DMKSegmentedCell.swift in Sources */,
+				6395ACEC1D44E0CC00F83D3F /* ExampleFormViewController.swift in Sources */,
 				638244241D447A27000E542A /* AppDelegate.swift in Sources */,
-				6395ACEF1D44E39000F83D3F /* DMKDateCell.swift in Sources */,
-				635911031D47559F0071D59A /* DMKNumberFieldCell.swift in Sources */,
-				638244491D448666000E542A /* DMKNameCell.swift in Sources */,
+				63DD5DE21D4A06770006A47E /* DMKNameCell.swift in Sources */,
+				63DD5DDE1D4A06770006A47E /* DMKDateCell.swift in Sources */,
+				63DD5DE81D4A06770006A47E /* DMKStepperCell.swift in Sources */,
+				63DD5DEA1D4A06770006A47E /* DMKTextfieldCell.swift in Sources */,
+				63DD5DE41D4A06770006A47E /* DMKNumberFieldCell.swift in Sources */,
+				63DD5DE61D4A06770006A47E /* DMKSegmentedCell.swift in Sources */,
+				63DD5DEC1D4A06770006A47E /* DMKTextViewCell.swift in Sources */,
+				63DD5DE11D4A06770006A47E /* DMKFormViewController.swift in Sources */,
+				63DD5DDC1D4A06770006A47E /* DMKButtonCell.swift in Sources */,
+				63DD5DE01D4A06770006A47E /* DMKFormCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

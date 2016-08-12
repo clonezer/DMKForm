@@ -9,8 +9,8 @@
 import UIKit
 
 class DMKNameCellInfo: DMKFormCellInfo {
-    override init(tag: String, title: String, type: String, value: AnyObject?, options: [AnyObject]?, formVC: DMKFormViewController) {
-        super.init(tag: tag, title: title, type: type, value: value, options: options, formVC: formVC)
+    static func create(tag: String, title: String, value: AnyObject?, formVC: DMKFormViewController) -> DMKNameCellInfo {
+        return DMKNameCellInfo(tag: tag, title: title, type: String(DMKNameCell.self), value: value, options: nil, formVC: formVC)
     }
 }
 

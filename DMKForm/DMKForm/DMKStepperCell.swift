@@ -11,9 +11,9 @@ import UIKit
 class DMKStepperCellInfo: DMKFormCellInfo {
     var minimumValue = 0
     var maximumValue = 999
-    
-    override init(tag: String, title: String, type: String, value: AnyObject?, options: [AnyObject]?, formVC: DMKFormViewController) {
-        super.init(tag: tag, title: title, type: type, value: value, options: options, formVC: formVC)
+        
+    static func create(tag: String, title: String, value: AnyObject?, formVC: DMKFormViewController) -> DMKStepperCellInfo {
+        return DMKStepperCellInfo(tag: tag, title: title, type: String(DMKStepperCell.self), value: value, options: nil, formVC: formVC)
     }
 }
 
@@ -66,6 +66,9 @@ class DMKStepperCell: DMKFormCell {
             value = value + 1
         }
         cellInfo.value = value
+        if let changeBlock = cellInfo.onChangeBlock {
+            changeBlock(value: cellInfo.value!, cellInfo: cellInfo)
+        }
         self.update()
     }
     
@@ -78,6 +81,9 @@ class DMKStepperCell: DMKFormCell {
             value = value - 1
         }
         cellInfo.value = value
+        if let changeBlock = cellInfo.onChangeBlock {
+            changeBlock(value: cellInfo.value!, cellInfo: cellInfo)
+        }
         self.update()
     }
     

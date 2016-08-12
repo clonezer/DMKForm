@@ -17,10 +17,10 @@ class DMKFormCell: UITableViewCell {
     }
     
     func configCell() {
-    
+        
     }
     
-    func showError() {
+    func showError(message: String) {
     
     }
         

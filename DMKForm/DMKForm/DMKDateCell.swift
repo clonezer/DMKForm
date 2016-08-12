@@ -13,8 +13,8 @@ class DMKDateCellInfo: DMKFormCellInfo {
     var minimumDate: NSDate?
     var maximumDate: NSDate?
     
-    override init(tag: String, title: String, type: String, value: AnyObject?, options: [AnyObject]?, formVC: DMKFormViewController) {
-        super.init(tag: tag, title: title, type: type, value: value, options: options, formVC: formVC)
+    static func create(tag: String, title: String, value: AnyObject?, formVC: DMKFormViewController) -> DMKDateCellInfo {
+        return DMKDateCellInfo(tag: tag, title: title, type: String(DMKDateCell.self), value: value, options: nil, formVC: formVC)
     }
 }
 
@@ -39,7 +39,9 @@ class DMKDateCell: DMKFormCell {
         guard let cellInfo = self.cellInfo, let formVC = self.cellInfo?.formViewController else { return }
         
         cellInfo.actionBlock = { cell in
-            self.extendCell()
+            if cellInfo.disable == false {
+                self.extendCell()
+            }
         }
         
         self.titleLabel.font = formVC.titleFont
@@ -70,8 +72,8 @@ class DMKDateCell: DMKFormCell {
     @IBAction func datePickerDidChanged(sender: AnyObject) {
         let datePicker = sender as! UIDatePicker
         self.cellInfo?.value = datePicker.date
-        if let block = self.cellInfo?.onChangBlock {
-            block(value: datePicker.date)
+        if let block = self.cellInfo?.onChangeBlock {
+            block(value: datePicker.date, cellInfo: self.cellInfo!)
         }
         self.update()
     }

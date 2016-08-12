@@ -1,12 +1,12 @@
 PODS:
-  - SwiftValidators (3.0.0)
+  - Validator (1.1.2)
 
 DEPENDENCIES:
-  - SwiftValidators
+  - Validator
 
 SPEC CHECKSUMS:
-  SwiftValidators: 25d42833be4c6019f3996c62f15fe0facdf75280
+  Validator: 3fa8a561459004f4629a698258ee365fc0b82406
 
-PODFILE CHECKSUM: 3d44ff06e341009c77105db052a493f066d981c3
+PODFILE CHECKSUM: cebfedb1f0f6d72a61ddd0b553cfdfae342ffe73
 
 COCOAPODS: 1.0.1

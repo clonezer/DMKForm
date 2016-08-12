@@ -9,8 +9,8 @@
 import UIKit
 
 class DMKSegmentedCellInfo: DMKFormCellInfo {
-    override init(tag: String, title: String, type: String, value: AnyObject?, options: [AnyObject]?, formVC: DMKFormViewController) {
-        super.init(tag: tag, title: title, type: type, value: value, options: options, formVC: formVC)
+    static func create(tag: String, title: String, value: AnyObject?, options: [AnyObject], formVC: DMKFormViewController) -> DMKSegmentedCellInfo {
+        return DMKSegmentedCellInfo(tag: tag, title: title, type: String(DMKSegmentedCell.self), value: value, options: options, formVC: formVC)
     }
 }
 
@@ -57,8 +57,8 @@ class DMKSegmentedCell: DMKFormCell {
         let segmentedControl = sender as! UISegmentedControl
         guard let options = self.cellInfo?.options else { return }
         self.cellInfo?.value = options[segmentedControl.selectedSegmentIndex] as! String
-        if let block = self.cellInfo!.onChangBlock {
-            block(value: options[segmentedControl.selectedSegmentIndex])
+        if let block = self.cellInfo!.onChangeBlock {
+            block(value: options[segmentedControl.selectedSegmentIndex], cellInfo: self.cellInfo!)
         }
     }
 }

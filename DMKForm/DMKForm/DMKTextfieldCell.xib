@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="ThaiSansNeue-Bold.ttf">
+            <string>ThaiSansNeue-Bold</string>
+        </mutableArray>
+        <mutableArray key="ThaiSansNeue-Italic.ttf">
+            <string>ThaiSansNeue-Italic</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="DMKTextfieldCell" customModule="Homemade_Stay" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qTM-dc-vqO">
+                        <rect key="frame" x="13" y="7" width="39" height="30"/>
+                        <fontDescription key="fontDescription" name="ThaiSansNeue-Bold" family="ThaiSans Neue" pointSize="23"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="AuE-6a-2Bk">
+                        <rect key="frame" x="62" y="7" width="240" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="V7Y-sN-sxx"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UzJ-qd-IpX">
+                        <rect key="frame" x="0.0" y="0.0" width="5" height="43"/>
+                        <color key="backgroundColor" red="0.85043728351593018" green="0.21816034615039825" blue="0.15920260548591614" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="5" id="wX9-uT-n9e"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0tD-J9-7BT">
+                        <rect key="frame" x="57" y="24" width="0.0" height="0.0"/>
+                        <fontDescription key="fontDescription" name="ThaiSansNeue-Italic" family="ThaiSans Neue" pointSize="18"/>
+                        <color key="textColor" red="0.85043728351593018" green="0.21816034615039825" blue="0.15920260548591614" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="0tD-J9-7BT" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="FeA-xc-Xl0"/>
+                    <constraint firstItem="qTM-dc-vqO" firstAttribute="leading" secondItem="UzJ-qd-IpX" secondAttribute="trailing" constant="4" id="JPe-Tm-xQF"/>
+                    <constraint firstItem="qTM-dc-vqO" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="K1C-Pr-btc"/>
+                    <constraint firstItem="AuE-6a-2Bk" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="On4-1q-wxh"/>
+                    <constraint firstItem="AuE-6a-2Bk" firstAttribute="leading" secondItem="qTM-dc-vqO" secondAttribute="trailing" constant="10" id="OwX-Y1-hfC"/>
+                    <constraint firstItem="AuE-6a-2Bk" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="-10" id="Sho-zl-bVl"/>
+                    <constraint firstItem="0tD-J9-7BT" firstAttribute="leading" secondItem="qTM-dc-vqO" secondAttribute="trailing" constant="5" id="a8Y-lc-BAt"/>
+                    <constraint firstItem="UzJ-qd-IpX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="eab-m8-8aa"/>
+                    <constraint firstItem="qTM-dc-vqO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="lDq-xK-krc"/>
+                    <constraint firstItem="UzJ-qd-IpX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="lMq-UZ-QcJ"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="UzJ-qd-IpX" secondAttribute="bottom" constant="-8" id="sme-OM-h2L"/>
+                    <constraint firstItem="AuE-6a-2Bk" firstAttribute="leading" secondItem="0tD-J9-7BT" secondAttribute="trailing" constant="5" id="xcf-t6-Ko4"/>
+                    <constraint firstItem="0tD-J9-7BT" firstAttribute="centerY" secondItem="AuE-6a-2Bk" secondAttribute="centerY" constant="2" id="zah-Y8-Tkn"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="JPe-Tm-xQF"/>
+                        <exclude reference="FeA-xc-Xl0"/>
+                        <exclude reference="OwX-Y1-hfC"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="errorLabel" destination="0tD-J9-7BT" id="OhO-MA-WOh"/>
+                <outlet property="errorView" destination="UzJ-qd-IpX" id="yeA-aU-7aW"/>
+                <outlet property="textField" destination="AuE-6a-2Bk" id="36b-41-0dc"/>
+                <outlet property="titleLabel" destination="qTM-dc-vqO" id="RHb-31-bpr"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

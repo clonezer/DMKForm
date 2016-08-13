@@ -23,25 +23,20 @@ class ExampleFormViewController: DMKFormViewController {
         let section3 = DMKFormSectionInfo(tag: "Button", title: "", extendable: false)
         
         let segmentedCell = DMKSegmentedCellInfo(tag: "Segmented", title: "Select", type: String(DMKSegmentedCell.self), value: "Type A", options: ["Type A", "Type B"], formVC: self)
-        let emailCell = DMKTextfieldCellInfo(tag: "Email", title: "Email", type: String(DMKTextfieldCell.self), value: nil, options: nil, formVC: self)
-        let emailInfoCell = DMKNameCellInfo(tag: "EmailInfo", title: "Email Info", type: String(DMKNameCell.self), value: emailCell.value, options: nil, formVC: self)
-        let cardCell = DMKTextfieldCellInfo(tag: "IDCard", title: "ID Card", type: String(DMKTextfieldCell.self), value: "12345", options: nil, formVC: self)
-        let textViewCell = DMKTextViewCellInfo(tag: "Detail", title: "Description", type: String(DMKTextViewCell.self), value: "", options: nil, formVC: self)
-        let stepperCell = DMKStepperCellInfo(tag: "Stepper", title: "Stepper", type: String(DMKStepperCell.self), value: 0, options: nil, formVC: self)
+        let emailCell = DMKTextfieldCellInfo.create("Detail", title: "Email", value: "", formVC: self)
+        let textViewCell = DMKTextfieldCellInfo.create("Detail", title: "Informations", value: "", formVC: self)
+        let stepperCell = DMKStepperCellInfo.create("Stepped", title: "Stepper", value: 0, formVC: self)
+        let dateCell = DMKDateCellInfo.create("Date", title: "Select Date", value: NSDate(), formVC: self)
+        let newUnitButtonCell = DMKButtonCellInfo.create("UnitButton", title: "Hey Tap Me!", formVC: self)
+        
         stepperCell.maximumValue = 5
         stepperCell.minimumValue = 1
-        let dateCell = DMKDateCellInfo(tag: "Date", title: "Datetime", type: String(DMKDateCell.self), value: NSDate(), options: nil, formVC: self)
-        let newUnitButtonCell = DMKButtonCellInfo(tag: "UnitButton", title: "Add New Unit", type: String(DMKButtonCell.self), value: nil, options: nil, formVC: self)
         
         section.addCellInfo(segmentedCell)
         section.addCellInfo(emailCell)
-        section.addCellInfo(emailInfoCell)
-        section.addCellInfo(cardCell)
-        
         section1.addCellInfo(stepperCell)
         section1.addCellInfo(dateCell)
         section1.addCellInfo(textViewCell)
-        
         section3.addCellInfo(newUnitButtonCell)
         
         form.addSectionInfo(section)

@@ -35,6 +35,8 @@ class DMKStepperCell: DMKFormCell {
         self.titleLabel.textColor = formVC.titleColor
         self.valueLabel.font = formVC.detailFont
         self.valueLabel.textColor = formVC.detailColor
+        self.plusButton.backgroundColor = formVC.tintColor
+        self.minusButton.backgroundColor = formVC.detailColor
         self.contentView.backgroundColor = formVC.cellColor
         self.update()
     }

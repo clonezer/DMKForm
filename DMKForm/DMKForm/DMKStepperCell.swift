@@ -8,9 +8,13 @@
 
 import UIKit
 
+typealias DMKStepperButtonTappedBlock = (cellInfo: DMKStepperCellInfo) -> Void
+
 class DMKStepperCellInfo: DMKFormCellInfo {
     var minimumValue = 0
     var maximumValue = 999
+    var didMinusButtonTapBlock: DMKStepperButtonTappedBlock?
+    var didPlusButtonTapBlock: DMKStepperButtonTappedBlock?
         
     static func create(tag: String, title: String, value: AnyObject?, formVC: DMKFormViewController) -> DMKStepperCellInfo {
         return DMKStepperCellInfo(tag: tag, title: title, type: String(DMKStepperCell.self), value: value, options: nil, formVC: formVC)
@@ -20,7 +24,7 @@ class DMKStepperCellInfo: DMKFormCellInfo {
 class DMKStepperCell: DMKFormCell {
 
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var valueLabel: UILabel!
+    //@IBOutlet weak var valueLabel: UILabel!
     @IBOutlet weak var plusButton: UIButton!
     @IBOutlet weak var minusButton: UIButton!
     
@@ -33,8 +37,8 @@ class DMKStepperCell: DMKFormCell {
         
         self.titleLabel.font = formVC.titleFont
         self.titleLabel.textColor = formVC.titleColor
-        self.valueLabel.font = formVC.detailFont
-        self.valueLabel.textColor = formVC.detailColor
+        self.plusButton.titleLabel?.font = formVC.titleFont
+        self.minusButton.titleLabel?.font = formVC.titleFont
         self.plusButton.backgroundColor = formVC.tintColor
         self.minusButton.backgroundColor = formVC.detailColor
         self.contentView.backgroundColor = formVC.cellColor
@@ -42,49 +46,68 @@ class DMKStepperCell: DMKFormCell {
     }
     
     override func update() {
-        guard let cellInfo = self.cellInfo as? DMKStepperCellInfo else { return }
+        guard
+            let cellInfo = self.cellInfo as? DMKStepperCellInfo,
+            let value = cellInfo.value as? Int
+            else { return }
         
-        cellInfo.value = ((cellInfo.value as! Int) < cellInfo.minimumValue ? cellInfo.minimumValue : cellInfo.value)
-        cellInfo.value = ((cellInfo.value as! Int) > cellInfo.maximumValue ? cellInfo.maximumValue : cellInfo.value)
+        cellInfo.value = (value < cellInfo.minimumValue ? cellInfo.minimumValue : value)
+        cellInfo.value = (value > cellInfo.maximumValue ? cellInfo.maximumValue : value)
         
         self.titleLabel.text = cellInfo.title
-        self.valueLabel.text = "\(cellInfo.value as! Int)"
+        
+        if value < 1 {
+            self.plusButton.setTitle("+", forState: .Normal)
+        }else {
+            self.plusButton.setTitle("\(value)", forState: .Normal)
+        }
+
         self.plusButton.enabled = !cellInfo.disable
+        
         self.minusButton.enabled = !cellInfo.disable
+        self.minusButton.hidden = (value < 1)
+        
     }
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     @IBAction func plusButtonTapped(sender: AnyObject) {
-        guard let cellInfo = self.cellInfo  else { return }
+        guard
+            let cellInfo = self.cellInfo as? DMKStepperCellInfo,
+            let cellValue = cellInfo.value as? Int
+            where
+            cellInfo.maximumValue > cellValue
+            else { return }
         
-        var value = cellInfo.value as! Int
-        let max = (cellInfo as! DMKStepperCellInfo).maximumValue
-        if value < max {
-            value = value + 1
-        }
-        cellInfo.value = value
+        cellInfo.value = cellValue + 1
+        
         if let changeBlock = cellInfo.onChangeBlock {
-            changeBlock(value: cellInfo.value!, cellInfo: cellInfo)
+            changeBlock(value: cellValue, cellInfo: cellInfo)
         }
+        if let plusButtonBlock = cellInfo.didPlusButtonTapBlock {
+            plusButtonBlock(cellInfo: cellInfo)
+        }
+        
         self.update()
     }
     
     @IBAction func minusButtonTapped(sender: AnyObject) {
-        guard let cellInfo = self.cellInfo else { return }
+        guard
+            let cellInfo = self.cellInfo as? DMKStepperCellInfo,
+            let cellValue = cellInfo.value as? Int
+        where
+            cellInfo.minimumValue < cellValue
+        else { return }
         
-        var value = cellInfo.value as! Int
-        let min = (cellInfo as! DMKStepperCellInfo).minimumValue
-        if value > min {
-            value = value - 1
-        }
-        cellInfo.value = value
+        cellInfo.value = cellValue - 1
+        
         if let changeBlock = cellInfo.onChangeBlock {
-            changeBlock(value: cellInfo.value!, cellInfo: cellInfo)
+            changeBlock(value: cellValue, cellInfo: cellInfo)
+        }
+        if let minusButtonBlock = cellInfo.didMinusButtonTapBlock {
+            minusButtonBlock(cellInfo: cellInfo)
         }
         self.update()
     }

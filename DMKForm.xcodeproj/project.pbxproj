@@ -15,6 +15,14 @@
 		6382442E1D447A27000E542A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6382442C1D447A27000E542A /* LaunchScreen.storyboard */; };
 		638244391D447A27000E542A /* DMKFormTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638244381D447A27000E542A /* DMKFormTests.swift */; };
 		6395ACEC1D44E0CC00F83D3F /* ExampleFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6395ACEB1D44E0CC00F83D3F /* ExampleFormViewController.swift */; };
+		63C6D8BA1DA081A400C91476 /* DMKPushCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6D8B61DA081A400C91476 /* DMKPushCell.swift */; };
+		63C6D8BB1DA081A400C91476 /* DMKPushCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63C6D8B71DA081A400C91476 /* DMKPushCell.xib */; };
+		63C6D8BC1DA081A400C91476 /* DMKSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6D8B81DA081A400C91476 /* DMKSwitchCell.swift */; };
+		63C6D8BD1DA081A400C91476 /* DMKSwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63C6D8B91DA081A400C91476 /* DMKSwitchCell.xib */; };
+		63C6D8C01DA0899C00C91476 /* DMKOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6D8BE1DA0899C00C91476 /* DMKOptionsViewController.swift */; };
+		63C6D8C11DA0899C00C91476 /* DMKOptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63C6D8BF1DA0899C00C91476 /* DMKOptionsViewController.xib */; };
+		63C6D8C41DA08B8E00C91476 /* DMKOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6D8C21DA08B8E00C91476 /* DMKOptionCell.swift */; };
+		63C6D8C51DA08B8E00C91476 /* DMKOptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63C6D8C31DA08B8E00C91476 /* DMKOptionCell.xib */; };
 		63DD5DDC1D4A06770006A47E /* DMKButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DD5DCA1D4A06770006A47E /* DMKButtonCell.swift */; };
 		63DD5DDD1D4A06770006A47E /* DMKButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63DD5DCB1D4A06770006A47E /* DMKButtonCell.xib */; };
 		63DD5DDE1D4A06770006A47E /* DMKDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DD5DCC1D4A06770006A47E /* DMKDateCell.swift */; };
@@ -58,6 +66,14 @@
 		638244381D447A27000E542A /* DMKFormTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMKFormTests.swift; sourceTree = "<group>"; };
 		6382443A1D447A27000E542A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6395ACEB1D44E0CC00F83D3F /* ExampleFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleFormViewController.swift; sourceTree = "<group>"; };
+		63C6D8B61DA081A400C91476 /* DMKPushCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMKPushCell.swift; sourceTree = "<group>"; };
+		63C6D8B71DA081A400C91476 /* DMKPushCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMKPushCell.xib; sourceTree = "<group>"; };
+		63C6D8B81DA081A400C91476 /* DMKSwitchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMKSwitchCell.swift; sourceTree = "<group>"; };
+		63C6D8B91DA081A400C91476 /* DMKSwitchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMKSwitchCell.xib; sourceTree = "<group>"; };
+		63C6D8BE1DA0899C00C91476 /* DMKOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMKOptionsViewController.swift; sourceTree = "<group>"; };
+		63C6D8BF1DA0899C00C91476 /* DMKOptionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMKOptionsViewController.xib; sourceTree = "<group>"; };
+		63C6D8C21DA08B8E00C91476 /* DMKOptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMKOptionCell.swift; sourceTree = "<group>"; };
+		63C6D8C31DA08B8E00C91476 /* DMKOptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMKOptionCell.xib; sourceTree = "<group>"; };
 		63DD5DCA1D4A06770006A47E /* DMKButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMKButtonCell.swift; sourceTree = "<group>"; };
 		63DD5DCB1D4A06770006A47E /* DMKButtonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DMKButtonCell.xib; sourceTree = "<group>"; };
 		63DD5DCC1D4A06770006A47E /* DMKDateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMKDateCell.swift; sourceTree = "<group>"; };
@@ -177,6 +193,14 @@
 				63DD5DD91D4A06770006A47E /* DMKTextfieldCell.xib */,
 				63DD5DDA1D4A06770006A47E /* DMKTextViewCell.swift */,
 				63DD5DDB1D4A06770006A47E /* DMKTextViewCell.xib */,
+				63C6D8B61DA081A400C91476 /* DMKPushCell.swift */,
+				63C6D8B71DA081A400C91476 /* DMKPushCell.xib */,
+				63C6D8B81DA081A400C91476 /* DMKSwitchCell.swift */,
+				63C6D8B91DA081A400C91476 /* DMKSwitchCell.xib */,
+				63C6D8BE1DA0899C00C91476 /* DMKOptionsViewController.swift */,
+				63C6D8BF1DA0899C00C91476 /* DMKOptionsViewController.xib */,
+				63C6D8C21DA08B8E00C91476 /* DMKOptionCell.swift */,
+				63C6D8C31DA08B8E00C91476 /* DMKOptionCell.xib */,
 			);
 			path = DMKForm;
 			sourceTree = "<group>";
@@ -278,14 +302,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63C6D8C51DA08B8E00C91476 /* DMKOptionCell.xib in Resources */,
 				63DD5DED1D4A06770006A47E /* DMKTextViewCell.xib in Resources */,
+				63C6D8BD1DA081A400C91476 /* DMKSwitchCell.xib in Resources */,
 				6382442E1D447A27000E542A /* LaunchScreen.storyboard in Resources */,
 				63DD5DE51D4A06770006A47E /* DMKNumberFieldCell.xib in Resources */,
 				63DD5DEB1D4A06770006A47E /* DMKTextfieldCell.xib in Resources */,
 				6382442B1D447A27000E542A /* Assets.xcassets in Resources */,
 				63DD5DDF1D4A06770006A47E /* DMKDateCell.xib in Resources */,
 				63DD5DDD1D4A06770006A47E /* DMKButtonCell.xib in Resources */,
+				63C6D8C11DA0899C00C91476 /* DMKOptionsViewController.xib in Resources */,
 				63DD5DE71D4A06770006A47E /* DMKSegmentedCell.xib in Resources */,
+				63C6D8BB1DA081A400C91476 /* DMKPushCell.xib in Resources */,
 				63DD5DE91D4A06770006A47E /* DMKStepperCell.xib in Resources */,
 				638244291D447A27000E542A /* Main.storyboard in Resources */,
 				63DD5DE31D4A06770006A47E /* DMKNameCell.xib in Resources */,
@@ -402,14 +430,18 @@
 				6395ACEC1D44E0CC00F83D3F /* ExampleFormViewController.swift in Sources */,
 				638244241D447A27000E542A /* AppDelegate.swift in Sources */,
 				63DD5DE21D4A06770006A47E /* DMKNameCell.swift in Sources */,
+				63C6D8C41DA08B8E00C91476 /* DMKOptionCell.swift in Sources */,
 				63DD5DDE1D4A06770006A47E /* DMKDateCell.swift in Sources */,
+				63C6D8BA1DA081A400C91476 /* DMKPushCell.swift in Sources */,
 				63DD5DE81D4A06770006A47E /* DMKStepperCell.swift in Sources */,
+				63C6D8C01DA0899C00C91476 /* DMKOptionsViewController.swift in Sources */,
 				63DD5DEA1D4A06770006A47E /* DMKTextfieldCell.swift in Sources */,
 				63DD5DE41D4A06770006A47E /* DMKNumberFieldCell.swift in Sources */,
 				63DD5DE61D4A06770006A47E /* DMKSegmentedCell.swift in Sources */,
 				63DD5DEC1D4A06770006A47E /* DMKTextViewCell.swift in Sources */,
 				63DD5DE11D4A06770006A47E /* DMKFormViewController.swift in Sources */,
 				63DD5DDC1D4A06770006A47E /* DMKButtonCell.swift in Sources */,
+				63C6D8BC1DA081A400C91476 /* DMKSwitchCell.swift in Sources */,
 				63DD5DE01D4A06770006A47E /* DMKFormCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

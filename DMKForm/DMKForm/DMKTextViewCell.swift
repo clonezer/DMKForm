@@ -10,6 +10,7 @@ import UIKit
 import Validator
 
 class DMKTextViewCellInfo: DMKFormCellInfo {
+    
     static func create(tag: String, title: String, value: AnyObject?, formVC: DMKFormViewController) -> DMKTextViewCellInfo {
         return DMKTextViewCellInfo(tag: tag, title: title, type: String(DMKTextViewCell.self), value: value, options: nil, formVC: formVC)
     }
@@ -46,10 +47,15 @@ class DMKTextViewCell: DMKFormCell, UITextViewDelegate {
             return
         }
         
-        cellInfo.actionBlock = { cell in
-            self.textView.becomeFirstResponder()
+        if cellInfo.disable == false {
+            cellInfo.actionBlock = { cell in
+                self.textView.becomeFirstResponder()
+                self.textView.selectable = true
+            }
+        }else {
+            self.textView.selectable = false
         }
-        
+    
         self.textView.validationRules = cellInfo.validationRuleSet
         self.textView.validateOnInputChange(true)
         self.textView.validationHandler = { result, sender in

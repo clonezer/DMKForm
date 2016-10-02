@@ -12,6 +12,7 @@ import Validator
 typealias DMKActionBlock = (cellInfo: DMKFormCellInfo) -> Void
 typealias DMKOnChangeBlock = (value: AnyObject, cellInfo: DMKFormCellInfo) -> Void
 typealias DMKOnDeleteBlock = (cellInfo: DMKFormCellInfo) -> Void
+
 class DMKForm {
     
     var title: String?
@@ -37,6 +38,31 @@ class DMKForm {
         _sectionInfos.append(sectionInfo)
     }
     
+    func addSectionInfo(sectionInfo: DMKFormSectionInfo, afterSectionInfo: DMKFormSectionInfo) -> Bool {
+        guard
+            let _index = _sectionInfos.indexOf({ $0.tag == afterSectionInfo.tag }),
+            let index = sectionInfos.indexOf({ $0.tag == afterSectionInfo.tag })
+        else { return false }
+        _sectionInfos.insert(sectionInfo, atIndex: _index)
+        sectionInfos.insert(sectionInfo, atIndex: index)
+        return true
+    }
+    
+    func addSectionInfo(sectionInfo: DMKFormSectionInfo, beforeSectionInfo: DMKFormSectionInfo) -> Bool {
+        guard
+            let _index = _sectionInfos.indexOf({ $0.tag == beforeSectionInfo.tag }),
+            let index = sectionInfos.indexOf({ $0.tag == beforeSectionInfo.tag })
+            else { return false }
+        _sectionInfos.insert(sectionInfo, atIndex: _index - 1)
+        sectionInfos.insert(sectionInfo, atIndex: index - 1)
+        return true
+    }
+    
+    func addSectionInfoBeforeLast(sectionInfo: DMKFormSectionInfo) {
+        sectionInfos.insert(sectionInfo, atIndex: sectionInfos.count - 2)
+        _sectionInfos.insert(sectionInfo, atIndex: _sectionInfos.count - 2)
+    }
+    
     func addSectionInfo(sectionInfo: DMKFormSectionInfo, index: Int) {
         sectionInfos.insert(sectionInfo, atIndex: index)
         _sectionInfos.insert(sectionInfo, atIndex: index)
@@ -54,6 +80,13 @@ class DMKForm {
         
         _sectionInfos.removeAtIndex(_index)
         sectionInfos.removeAtIndex(index)
+    }
+    
+    func deleteSectionInfoContain(tags: String) {
+        let _results = _sectionInfos.filter({ $0.tag.containsString(tags) == false })
+        let results = sectionInfos.filter({ $0.tag.containsString(tags) == false })
+        _sectionInfos = _results
+        sectionInfos = results
     }
     
     func reloadData() {
@@ -79,10 +112,16 @@ class DMKForm {
         return self.getSectionInfo(index)
     }
     
+    func getSectionInfoContain(tag: String) -> [DMKFormSectionInfo] {
+        let result = _sectionInfos.filter({ $0.tag.containsString(tag) })
+        return result
+    }
+    
     func getValues() -> [String: AnyObject]? {
         var valueDict: [String: AnyObject] = Dictionary()
 
         for sectionInfo in _sectionInfos {
+            
             var multivalues: [AnyObject] = []
             for cellInfo in sectionInfo._cellInfos {
                 if sectionInfo.extendable == true {
@@ -94,6 +133,8 @@ class DMKForm {
             if sectionInfo.extendable == true {
                 valueDict[sectionInfo.tag] = multivalues
             }
+ 
+            //valueDict[sectionInfo.tag] = sectionInfo.getValues()
         }
 
         return valueDict
@@ -159,7 +200,7 @@ class DMKFormSectionInfo {
     var footerText: String?
     var hidden: Bool = false
     var extendable: Bool = false
-    
+    var otherData: AnyObject?
     var numberOfCells: Int = 0
     
     private var _cellInfos: [DMKFormCellInfo] = [] {
@@ -175,6 +216,16 @@ class DMKFormSectionInfo {
         self.extendable = extendable
     }
     
+    func getExendableValues() -> [AnyObject] {
+        var multivalues: [AnyObject] = []
+        for cellInfo in self._cellInfos {
+            if self.extendable == true {
+                multivalues.append(cellInfo.value!)
+            }
+        }
+        return multivalues
+    }
+    
     func getAllCell() -> [DMKFormCellInfo]? {
         return _cellInfos
     }
@@ -183,6 +234,13 @@ class DMKFormSectionInfo {
         cellInfos.append(cellInfo)
         if cellInfo.hidden == false {
             _cellInfos.append(cellInfo)
+        }
+    }
+    
+    func pushCellInfo(cellInfo: DMKFormCellInfo) {
+        cellInfos.insert(cellInfo, atIndex: 0)
+        if cellInfo.hidden == false {
+            _cellInfos.insert(cellInfo, atIndex: 0)
         }
     }
     
@@ -276,7 +334,6 @@ class DMKFormCellInfo {
     var onChangeBlock: DMKOnChangeBlock?
     var onDeleteBlock: DMKOnDeleteBlock?
 
-    
     init(tag: String, title: String, type: String, value: AnyObject?, options: [AnyObject]?, formVC: DMKFormViewController) {
         self.tag = tag
         self.title = title
@@ -292,6 +349,28 @@ class DMKFormCellInfo {
     
     func update() {
     
+    }
+    
+    func isValidated() -> Bool{
+        var isValid = true
+        
+        if self.validationRuleSet != nil {
+            let value = (self.value == nil ? "" : "\(self.value!)")
+            let result = Validator.validate(input: value, rules: self.validationRuleSet!)
+            switch result {
+            case .Invalid(let failures):
+                self.validate = false
+                self.validationErrors = failures.map { $0.message }
+                isValid = false
+            case .Valid:
+                self.validate = true
+                self.validationErrors?.removeAll()
+            }
+        }else {
+            self.validate = true
+        }
+        
+        return isValid
     }
     
     static func create(tag: String, title: String, type: String, value: AnyObject?, options: [AnyObject]?, formVC: DMKFormViewController) -> AnyObject {
@@ -315,6 +394,8 @@ class DMKFormViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tableView = UITableView(frame: self.view.bounds, style: .Grouped)
+        
         self.registerNibName([
             "DMKNameCell",
             "DMKTextfieldCell",
@@ -323,7 +404,10 @@ class DMKFormViewController: UITableViewController {
             "DMKSegmentedCell",
             "DMKStepperCell",
             "DMKNumberFieldCell",
-            "DMKButtonCell"
+            "DMKButtonCell",
+            "DMKSwitchCell",
+            "DMKPushCell",
+            "DMKOptionCell"
             ])
     }
     
@@ -395,9 +479,6 @@ class DMKFormViewController: UITableViewController {
             if let block = cellInfo.onDeleteBlock {
                 block(cellInfo: cellInfo)
             }
-            //If you want to delete cellInfo
-            //self.form.deleteInfo(indexPath.section, cellInfo: cellInfo)
-            //self.reloadForm()
         }
     }
     
@@ -409,6 +490,14 @@ class DMKFormViewController: UITableViewController {
     
     private func hideKeyboard() {
         view.endEditing(true)
+    }
+    
+}
+
+extension Array {
+    
+    mutating func removeObject<T where T : Equatable>(obj: T) {
+        self = self.filter({$0 as? T != obj})
     }
     
 }
